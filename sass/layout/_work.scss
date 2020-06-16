@@ -1,0 +1,91 @@
+.work {
+    background: url(../img/background2.jpg) no-repeat center center/cover;
+    padding: 69px 0;
+    position: relative;
+
+    .bg-elements {
+        top: 0;
+        position: absolute;
+        height: 100%;
+        width: 100%
+    }
+
+    .bg-elements img.planet {
+        left: 10%;
+        margin-top: -125px;
+        width: 250px;
+        height: 250px;
+        top: 50%;
+        position: absolute
+    }
+
+    .bg-elements img.rocket {
+        top: 50%;
+        left: 5%;
+        width: 500px;
+        transform: translateY(-50%);
+        position: absolute
+    }
+
+    .universe__layers {
+        height: 748px
+    }
+
+    .universe .saturn {
+        width: 216px;
+        height: 117px;
+        left: 0;
+        top: 10%;
+        background: url(../img/saturn.svg) no-repeat center
+    }
+
+    .universe .upiter {
+        width: 120px;
+        height: 120px;
+        right: 15%;
+        top: 30%;
+        background: url(../img/upiter.svg) no-repeat center
+    }
+
+    .universe .uran {
+        width: 120px;
+        height: 120px;
+        right: 65%;
+        bottom: 7%;
+        background: url(../img/uran.svg) no-repeat center
+    }
+
+    .section-title {
+        text-align: right;
+        color: #fff;
+        width: 490px;
+        margin-left: auto
+    }
+
+    .work-process {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        margin-top: 134px;
+        -webkit-box-pack: end;
+        -webkit-justify-content: flex-end;
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+        position: relative;
+        z-index: 2
+    }
+
+    .work-process ul>li {
+        color: #fff;
+        background: #7306a6;
+        padding: 23px 0 22px 40px;
+        width: 593px;
+        margin-bottom: 32px;
+        border-radius: 34.5px
+    }
+
+    .work-process ul>li::last-child {
+        margin-bottom: 0
+    }
+}

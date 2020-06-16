@@ -1,0 +1,134 @@
+.blog {
+    background: url(../img/background2.jpg) no-repeat center top/cover;
+    padding: 131px 0 165px 0;
+    color: #fff;
+    position: relative;
+
+    .universe {
+        width: 100%;
+        top: 0;
+        -webkit-transform: none;
+        -ms-transform: none;
+        transform: none;
+        height: 100%
+    }
+
+    .universe .universe__layers {
+        width: 100%;
+        height: 100%
+    }
+
+    .universe .universe__layers .planet {
+        background: url(../img/upiter.svg) no-repeat center/contain;
+        width: 163px;
+        height: 163px;
+        left: 20%;
+        top: 23%
+    }
+
+    .universe .universe__layers .planet2 {
+        background: url(../img/saturn.svg) no-repeat center/contain;
+        width: 216px;
+        height: 115px;
+        right: 5%;
+        top: 46%
+    }
+
+    .universe .universe__layers .man {
+        width: 202px;
+        height: 370px;
+        bottom: 0;
+        left: 12%;
+        background: url(../img/main-on-the-stairs.svg) no-repeat center/contain
+    }
+
+    .universe .universe__layers .girl {
+        width: 576px;
+        height: 175px;
+        bottom: 0;
+        right: 0;
+        background: url(../img/girl-with-laptop.svg) no-repeat center/contain
+    }
+
+    .section-title {
+        text-align: center;
+        margin-bottom: 106px
+    }
+
+    .recent-blog{
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .recent-blog__item{
+        margin: 0 15px 15px 15px;
+        border-radius: 15px;
+        overflow: hidden;
+        max-width: 292px;
+    }
+
+    .recent-blog__item__thumbnail{
+        height: 183px;
+        position: relative;
+    }
+
+    .recent-blog__item__pubdate{
+        position: absolute;
+        top: 24px;
+        left: 17.51px;
+        border-radius: 5px;
+        background: #fff;
+        padding: 5px 8px 5px 8px;
+    }
+
+    .recent-blog__item__pubdate > span{
+        color: #000;
+        display: block;
+        text-align: center;
+    }
+
+    .pubdate-day{
+        font-size: 24px;
+        border-bottom: 1px solid rgba(233, 233, 233, 0.5);
+        font-weight: 700;
+        line-height: 29px;
+    }
+
+    .pubdate-month{
+        font-size: 12px;
+        margin-top: 5px;
+    }
+
+    .recent-blog__info{
+        background: #f9f9f9;
+        color: #000;
+        padding: 21px 20px 27px 17.62px;
+        height: 100%; 
+    }
+
+    .recent_blog__title{
+        margin: 5px 0 15px 0;
+        font-size: 17px;
+        text-transform: inherit;
+    }
+
+    .recent_blog__excerpt{
+        color: rgba(0, 0, 0, 0.57);
+        margin-bottom: 23.43px;
+        height: 50px;
+        overflow: hidden;
+    }
+
+    .recent_blog__link{
+        background: #F55218;
+        border-radius: 15.2907px;
+        display: inline-block;
+        padding: 7px 15px;
+        color: #fff;
+        transition: all .3s ease;
+    }
+
+    .recent_blog__link:hover{
+        background: #cc4312;
+    }
+}

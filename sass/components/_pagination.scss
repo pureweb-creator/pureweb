@@ -1,0 +1,36 @@
+.pagination{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 1/3;
+    margin-top: 50px;
+
+    .page-numbers{
+        width: 50px;
+        height: 50px;
+        border-radius: 100px;
+        color: #fff;
+        line-height: 50px;
+        background: #7306a6;
+        margin-right: 10px; 
+        display: inline-block;
+        transition: all .3s ease;
+    }
+
+    .page-numbers:last-child{
+        margin-right: 0;
+    }
+
+    .page-numbers:hover, .page-numbers.current{
+        background: #F55218;
+    }
+
+    .page-numbers.next, .page-numbers.prev{
+        background: transparent;
+        color: #7306a6;
+        font-size: 30px;
+        width: auto;
+        height: auto;
+    }
+}

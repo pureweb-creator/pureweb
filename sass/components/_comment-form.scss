@@ -1,0 +1,33 @@
+#comment{
+    width: 100%;
+    max-width: 400px
+}
+
+.comment-respond{
+    margin: 50px 0;
+}
+
+.comment-reply-title{
+    margin-bottom: 15px;
+}
+
+.comment-notes{
+    opacity: .5;
+    margin: 10px 0;
+}
+
+.comment-form label{
+    display: block;
+}
+
+.comment-form input:not(#wp-comment-cookies-consent), .comment-form textarea{
+    border: 1px solid silver;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+}
+
+.form-submit input{
+    margin-top: 15px;
+    cursor: pointer;
+}

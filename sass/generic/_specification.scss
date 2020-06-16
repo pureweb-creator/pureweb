@@ -1,0 +1,63 @@
+::selection{
+    color: #fff;
+    background: red
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: red;
+  border-radius: 10px;
+}
+
+.progress{
+    height: 8px;
+    width: 100%;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+}
+
+ .progress__bar{
+    width: 0%;
+    height: 8px;
+    background: #F4461C;
+    border-radius: 0 6px 6px 0;
+}
+
+.work-process__timeline > li > a {
+    color: #fff;
+}
+
+.rotated_caret i {
+    transform: rotate(180deg);
+}
+
+.fa-caret-down{
+    transition: all 0.5s ease-in-out;
+    margin-left: 10px;
+}
+
+.preloader{
+    z-index: 9;
+}
+
+.hero{
+    position: relative;
+    z-index: 4;
+    margin-top: 8px;
+}
+
+.hero .heading{
+    align-items: center;
+}
+
+.hero .offer__title_menu li a {
+    color: rgb(49, 45, 231);
+}

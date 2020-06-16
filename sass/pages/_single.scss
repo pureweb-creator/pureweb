@@ -1,0 +1,130 @@
+.article__text h3,
+.article__text ul{
+    margin-bottom: 15px;
+}
+
+.article-image img{
+    width: 100% !important;
+    height: 150px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.single-page{
+    padding-top: 50px;
+    position: relative;
+    margin-bottom: 100px;
+}
+
+.single-page__cover{
+    width: 100%;
+    height: 400px;
+    position: absolute;
+}
+
+.cover__img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cover__mask{
+    background: rgba(0,0,0,0.5);
+    z-index: 3;
+}
+
+.cover__title{
+    color: #fff;
+    font-size: 30px;
+    line-height: 100%;
+    margin-left: 150px;
+    margin-top: 100px;
+    max-width: 600px;
+    line-height: 43.5px;
+    letter-spacing: .03em;
+}
+
+.article__main-image{
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.single-page__grid{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 30px;
+    margin-top: 300px;
+    align-items: flex-start;
+}
+
+.single-portfolio-page__grid{
+    grid-template-columns: 1fr
+}
+
+.single-page__article{
+    background: #fff;
+    font-size: 15px;
+    margin-bottom: 50px;
+    border-radius: 5px;
+    line-height: 1.55em;
+    overflow-wrap: break-word;
+    box-shadow: 0 0 25px rgba(0,0,0,0.5);
+    padding: 20px 50px;
+    padding-bottom: 40px !important;
+}
+
+.single-page__article ul li,
+.single-page__article ol li{
+    position: relative;
+    padding-left: 15px;
+    margin-bottom: 15px;
+}
+
+.blog-article ul li:not(.blocks-gallery-item)::before{
+    content: "";
+    display: block;
+    width: 9px;
+    height: 9px;
+    background: #0048ff;
+    border-radius: 100px;
+    position: absolute;
+    left: -15px;
+    top: 7px;
+}
+
+.related__load-new{
+    margin-right: 15px;
+}
+
+.page-sidebar{
+    margin-top: 150px;
+}
+
+.article__info{
+    position: relative;
+    top: -50px;
+}
+
+.single-page .views,
+.single-page .pubdate{
+    color: #fff;
+    opacity: 1;
+}
+
+.single-page__title{
+    font-size: 30px;
+    margin: 50px 0;
+    line-height: 1.55em;
+}
+
+.article__text p{
+    margin: 20px 0;
+}
+
+.article__text h2{
+    font-size: 25px;
+    margin: 40px 0;
+    line-height: 1.55em;
+}

@@ -1,0 +1,131 @@
+.blog-wrapper{
+    padding: 100px 0 0 0;
+    margin-bottom: 100px;
+}
+.blog-title{
+    text-align: center;
+}
+
+.social{
+    display: flex;
+    justify-content: center;
+}
+
+.social a{
+    display: block;
+    border: 1px solid rgb(49, 45, 231);
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    border-radius: 100px;
+    margin-left: 5px;
+    margin-right: 5px;
+    transition: all .3s ease;
+    position: relative;
+}
+
+.social a:hover{
+    background: rgb(49,45,231);
+    color: #fff;
+    transform: translateY(-5px);
+}
+
+.social span.fontawesome-text{
+    display: none;
+}
+
+.blog-text{
+    text-align: center;
+    margin: 20px auto;
+    width: 50%;
+    font-size: 15px;
+    line-height: 1.55em;
+}
+
+.blog-posts{
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 100px
+}
+
+.blog-posts__item{
+    height: 310px;
+    color: #fff;
+    position: relative;
+    transition: all .3s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-radius: 5px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+
+.blog-posts__item.big{
+    width: calc(100% / 12 * 9 - 30px)
+}
+
+.blog-posts__item.middle{
+    width: calc(100% / 12 * 6 - 30px)
+}
+
+.blog-posts__item.small{
+    width: calc(100% / 12 * 3 - 30px)
+}
+
+.post__thumbnail, .blog-posts__item_mask, .cover__mask{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    transition: all .3s ease;
+    object-position: center center;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
+.item__head{
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.views, .pubdate{
+    font-size: 11px;
+    opacity: .8;
+    display: inline-block;
+}
+
+.views > i, .pubdate > i{
+    margin-right: 5px;
+}
+
+.views{
+    margin-right: 15px;
+}
+
+.item__content{
+    position: relative;
+    top: 110px;
+    transition: all .3s ease
+}
+
+.blog-posts__item .item__text{
+    height: 100px;
+    overflow: hidden;
+}
+
+.blog-posts__item_mask{
+    background: rgba(0,0,0,0.5);
+}
+
+.blog-posts__item:hover .post__thumbnail{
+    transform: scale(1.2);
+}
+
+.blog-posts__item:hover .item__content{
+    top: 0;
+}

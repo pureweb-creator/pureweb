@@ -1,0 +1,50 @@
+.comments-title{
+    margin-bottom: 25px;
+}
+
+.comment-list{
+    padding-left: 0;
+
+    ul.children{
+        margin: 20px 0;
+        margin-left: 40px;
+    }
+
+    & li{
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid silver;
+    }
+
+    .comment .comment-body{
+        display: flex;
+    }
+
+    .comment-author{
+        margin-right: 15px;
+    }
+    .comment-author img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50px;
+        object-fit: cover;
+    }
+
+    .fn{
+        display: block;
+    }
+
+    .comment-meta.commentmetadata{
+        opacity: .5;
+        font-size: 11px;
+    }
+
+    .comments-text > p{
+        font-size: 16px;
+        margin: 10px 0;
+    }
+
+    .reply{
+        text-decoration: underline;
+    }
+}

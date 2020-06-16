@@ -1,0 +1,47 @@
+.sub-menu{
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 40px #ccc;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%) translateY(30px);
+    transition: all .3s ease;
+    width: 210px;
+    visibility: hidden;
+    opacity: 0;
+    li{
+        transition: unset;
+        text-align: center;
+    }
+
+    &::before{
+         content: "";
+        width: 0;
+        height: 0;
+        border: 10px solid transparent;
+        border-bottom-color: #fff;
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+.menu-item-has-children:hover .sub-menu{
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0px);
+}
+
+.menu-item-has-children,
+.sub-menu li{
+    position: relative;
+    transition: none !important;
+}
+
+.mobile-menu__nav > ul > li > a{
+    padding-top: 10px;
+    margin: 0;
+}
