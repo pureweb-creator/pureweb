@@ -12,10 +12,10 @@ get_header();
 
 <?php
 
-$archive_year  = get_the_time( 'Y' ); 
-$archive_month = get_the_time( 'm' ); 
-$archive_day   = get_the_time( 'd' ); 
-					
+$archive_year  = get_the_time( 'Y' );
+$archive_month = get_the_time( 'm' );
+$archive_day   = get_the_time( 'd' );
+
 if (have_posts()){
 	while (have_posts()) {
 		the_post();
@@ -53,12 +53,12 @@ if (have_posts()){
 					<?php the_content(); ?>
 				</div>
 				<div class="tags-box">
-					<?php 
+					<?php
 					$tags = get_the_tags(get_the_ID());
 
 					if($tags):
 						foreach ($tags as $tag) {
-							echo '<a href="'.esc_url(get_tag_link($tag->term_id)).'" class="tags-box__tag">'.$tag->name.'</a>';	
+							echo '<a href="'.esc_url(get_tag_link($tag->term_id)).'" class="tags-box__tag">'.$tag->name.'</a>';
 						}
 					endif;
 					?>
@@ -72,6 +72,7 @@ if (have_posts()){
 			<?php
 			echo "<br><br><h3>" . "<a href='javascript:void(0)' class='related__load-new' onclick='location.reload();'>".__("&#8634;")."</a>" . __('Статьи на эту же тему') . "</h3><br><br>";
 
+			// Related by catagories
 			$cur_cat = get_the_category(get_the_ID());
 
 			$categories = array();
@@ -79,6 +80,16 @@ if (have_posts()){
 				foreach ($cur_cat as $cat):
 					array_push($categories, $cat->slug);
 				endforeach;
+			endif;
+
+			// Related by $tags
+			$cur_tag = get_the_tags(get_the_ID());
+			$tags = array();
+
+			if($cur_tag):
+				foreach ($cur_tag as $tag) {
+					array_push($tags, $tag->slug);
+				}
 			endif;
 
 			$related = new WP_Query(array(
@@ -91,6 +102,11 @@ if (have_posts()){
 						'taxonomy' => 'category',
 						'field'    => 'slug',
 						'terms'    => $categories,
+					],
+					[
+						'taxonomy' => 'tag',
+						'field'    => 'slug',
+						'terms'    => $tags,
 					]
 				]
 			));
@@ -115,7 +131,7 @@ if (have_posts()){
 							</span>
 						</div>
 					</a>
-					<?php 
+					<?php
 				endwhile;
 			else:
 				echo "No posts found";

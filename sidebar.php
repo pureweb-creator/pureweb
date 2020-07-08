@@ -37,9 +37,9 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 		'posts_status' => 'publish'
 	));
 
-	 $archive_year  = get_the_time( 'Y' ); 
-     $archive_month = get_the_time( 'm' ); 
-     $archive_day   = get_the_time( 'd' ); 
+	   $archive_year  = get_the_time( 'Y' );
+     $archive_month = get_the_time( 'm' );
+     $archive_day   = get_the_time( 'd' );
 
 
 	echo '<h3 class="sidebar__title">'. __('Последние посты') .'</h3>'; ?>
@@ -72,7 +72,7 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 		'hide_empty' => true));
 		// print_r($tags);
 		foreach ($tags as $tag) {
-			echo '<a href="'.esc_url(get_tag_link($tag->term_id)).'" class="tags-box__tag">'.$tag->name.'</a>';	
+			echo '<a href="'.esc_url(get_tag_link($tag->term_id)).'" class="tags-box__tag">'.$tag->name.'</a>';
 		}
 
 	?>
