@@ -1,11 +1,10 @@
 <?php
-
 /**
  * This template to display all single pages related to portfolio post type
- * Author: Roman Semenikhin
+ * @author: Roman Semenikhin
  *
  * @link https://codex.wordpress.org/
- * 
+ *
  * @package pureweb
  */
 get_header();
@@ -43,91 +42,91 @@ while (have_posts()):
 				<?php $deadline = get_field('deadline'); ?>
 
 				<ul class="mask__info-block">
-                    <?php if(get_field('deadline')){ ?>
-                    <li class="mask__info-item">
-                        <img src="<?php echo $pureweb_redux['time_icon']['url'] ?>" alt="Deadline icon" class="item__image" width="26px" height="26px">
-                        <span class="item__name"><?php echo $pureweb_redux['deadline'] ?></span>
-                        <span class="item__text">
-                        <?php
-                        if($deadline){
-                            echo $deadline;
+	        <?php if(get_field('deadline')){ ?>
+	        <li class="mask__info-item">
+	            <img src="<?php echo $pureweb_redux['time_icon']['url'] ?>" alt="Deadline icon" class="item__image" width="26px" height="26px">
+	            <span class="item__name"><?php echo $pureweb_redux['deadline'] ?></span>
+	            <span class="item__text">
+	            <?php
+	            if($deadline){
+	                echo $deadline;
 
-                            if ($deadline % 10 == 1){
-                                echo " день";
-                            } else if ($deadline % 10 <= 4 && $deadline % 10 > 0){
-                                echo " дня";
-                            } else if ($deadline % 10 >= 5 && $deadline % 10 <= 9 || $deadline % 10 == 0 ){
-                                echo " дней";
-                            }
-                        }
-                        ?>
-                        </span>
-                    </li>
-                    <?php } else { echo ''; } ?>
+	                if ($deadline % 10 == 1){
+	                    echo " день";
+	                } else if ($deadline % 10 <= 4 && $deadline % 10 > 0){
+	                    echo " дня";
+	                } else if ($deadline % 10 >= 5 && $deadline % 10 <= 9 || $deadline % 10 == 0 ){
+	                    echo " дней";
+	                }
+	            }
+	            ?>
+	            </span>
+	        </li>
+	        <?php } else { echo ''; } ?>
 
-                    <?php if(get_field('price')){ ?>
-                    <li class="mask__info-item">
-                        <img src="<?php echo $pureweb_redux['price_icon']['url'] ?>" alt="Price icon" class="item__image" width="26px" height="26px" width="26px" height="26px">
-                        <span class="item__name"><?php echo $pureweb_redux['price']; ?></span>
-                        <span class="item__text"><?php the_field('price'); ?></span>
-                    </li>
-                    <?php } ?>
-                    <li class="mask__info-item">
-                        <img src="<?php echo $pureweb_redux['task_icon']['url']; ?>" alt="Work Category Icon" class="item__image" width="26px" height="26px">
-                        <span class="item__name"><?php echo $pureweb_redux['task'] ?></span>
-                        <span class="item__text">
-                        	<?php
-                            // Вывод категории поста
-                        	$cur_post_cat = get_the_terms(get_the_ID(), 'portfolio_cat');
-                        	foreach ($cur_post_cat as $post_cat) {
-                                echo '<a href="'. esc_url(get_term_link( $post_cat->term_id )) .'">'.$post_cat->name . '</a>';
-                            }
-                        	?>
-                        </span>
-                    </li>
-                    <?php if(get_field('mark_content')){ ?>
-                    <li class="mask__info-item">
-                        <img src="<?php echo $pureweb_redux['complexity_icon']['url'] ?>" alt="Complexity Icon" class="item__image" width="26px" height="26px">
-                        <span class="item__name"><?php echo $pureweb_redux['complexity']; ?></span>
-                        <span class="item__text">
-                           <?php
-                           $stars_count = get_field('mark_content');
-                           if($stars_count && $stars_count < 6 && $stars_count > 0){
-                               for($i = 0; $i < $stars_count; $i++){ ?>
-                                   <i class="fa fa-star"></i>
-                               <?php }
+	        <?php if(get_field('price')){ ?>
+	        <li class="mask__info-item">
+	            <img src="<?php echo $pureweb_redux['price_icon']['url'] ?>" alt="Price icon" class="item__image" width="26px" height="26px" width="26px" height="26px">
+	            <span class="item__name"><?php echo $pureweb_redux['price']; ?></span>
+	            <span class="item__text"><?php the_field('price'); ?></span>
+	        </li>
+	        <?php } ?>
+	        <li class="mask__info-item">
+	            <img src="<?php echo $pureweb_redux['task_icon']['url']; ?>" alt="Work Category Icon" class="item__image" width="26px" height="26px">
+	            <span class="item__name"><?php echo $pureweb_redux['task'] ?></span>
+	            <span class="item__text">
+	            	<?php
+	                // Вывод категории поста
+	            	$cur_post_cat = get_the_terms(get_the_ID(), 'portfolio_cat');
+	            	foreach ($cur_post_cat as $post_cat) {
+	                    echo '<a href="'. esc_url(get_term_link( $post_cat->term_id )) .'">' . $post_cat->name . '</a>';
+	                }
+	            	?>
+	            </span>
+	        </li>
+	        <?php if(get_field('mark_content')){ ?>
+	        <li class="mask__info-item">
+	            <img src="<?php echo $pureweb_redux['complexity_icon']['url'] ?>" alt="Complexity Icon" class="item__image" width="26px" height="26px">
+	            <span class="item__name"><?php echo $pureweb_redux['complexity']; ?></span>
+	            <span class="item__text">
+	               <?php
+	               $stars_count = get_field('mark_content');
+	               if($stars_count && $stars_count < 6 && $stars_count > 0){
+	                   for($i = 0; $i < $stars_count; $i++){ ?>
+	                       <i class="fa fa-star"></i>
+	                   <?php }
 
-                               for($i = 0; $i < 5 - $stars_count; $i++){ ?>
-                                   <i class="far fa-star"></i>
-                               <?php }
-                           } ?>
-                        </span>
-                    </li>
-                    <?php } ?>
-                </ul>
+	                   for($i = 0; $i < 5 - $stars_count; $i++){ ?>
+	                       <i class="far fa-star"></i>
+	                   <?php }
+	               } ?>
+	            </span>
+	        </li>
+	        <?php } ?>
+	    </ul>
 				<br>
-               <!-- Проверка на существование ссылки у работы в портфолио -->
-                <?php $p_link_url = get_field('portfolio_link_address'); ?>
-                <?php if($p_link_url && $p_link_url != ""){ ?>
-                    <a href="<?php echo esc_url($p_link_url); ?>">
-                        <span><?php echo __("Ссылка на работу в интернете: ");  ?></span>
-                        <?php echo '<span style="text-decoration: underline; color: red">'.esc_url($p_link_url).'</span>'; ?>
-                    </a>
-                <?php } else { echo ''; } ?>
+	     	<!-- Проверка на существование ссылки у работы в портфолио -->
+	      <?php $p_link_url = get_field('portfolio_link_address'); ?>
+	      <?php if($p_link_url && $p_link_url != ""){ ?>
+	          <a href="<?php echo esc_url($p_link_url); ?>">
+	              <span><?php echo __("Ссылка на работу в интернете: ");  ?></span>
+	              <?php echo '<span style="text-decoration: underline; color: red">'.esc_url($p_link_url).'</span>'; ?>
+	          </a>
+	      <?php } else { echo ''; } ?>
 				<br><br>
 				<div class="tags">
-					<?php 
-					$tags = get_the_tags(get_the_ID());
-					if($tags):
-						foreach ($tags as $tag) {
-							echo '<a href="'.esc_url(get_tag_link($tag->term_id)).'" class="tags-box__tag">'.$tag->name.'</a>';	
-						}
-					endif;
-					?>
-				</div>
+						<?php
+						$tags = get_the_tags(get_the_ID());
+						if($tags):
+							foreach ($tags as $tag) {
+								echo '<a href="'.esc_url(get_tag_link($tag->term_id)).'" class="tags-box__tag">'.$tag->name.'</a>';
+							}
+						endif;
+						?>
+					</div>
 			</article>
 			<article class="single-page__article">
-			<?php comments_template(); ?>
+				<?php comments_template(); ?>
 			</article>
 			<article class="single-page__article">
 				<div class="article__info" style="top: 0;">
@@ -135,7 +134,7 @@ while (have_posts()):
 					<?php echo '<h2 class="sidebar__title">'.__("Похожие работы").'</h2>'; ?>
 					<div class="page-sidebar__box page-sidebar__box--recent-posts">
 					<?php
-					$cur_cat = get_the_terms(get_the_ID(), 'portfolio_cat');
+					$cur_cat       = get_the_terms(get_the_ID(), 'portfolio_cat');
 					$cut_cat_stack = array();
 
 					if($cur_cat):
@@ -185,9 +184,6 @@ while (have_posts()):
 		</div>
 	</div>
 </section>
-
-
 <?php
-
 endwhile;
 get_footer(); ?>

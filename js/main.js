@@ -1,9 +1,8 @@
 jQuery(document).ready(function () {
-    // Other
-    jQuery('body').addClass('portfolio-page');
-
     // Preloader
     jQuery(".preloader").addClass('done');
+    // Other
+    jQuery('body').addClass('portfolio-page');
 
     // Progress bar when scrolling
     window.onscroll = function() {scrollBar()};
@@ -28,14 +27,14 @@ jQuery(document).ready(function () {
     });
 
     // Mobile submenu
-    $('.mobile-menu .sub-menu').slideUp();
-    
-    $('.mobile-menu__nav .menu-item').on('click', function(e){
-        $('.sub-menu').not($(this).find(".sub-menu")).slideUp();
-        $('.mobile-menu__nav .menu-item').not($(this)).removeClass("active");
+    jQuery('.mobile-menu .sub-menu').slideUp();
 
-        $(this).find(".sub-menu").slideToggle();
-        $(this).toggleClass("active");
+    jQuery('.mobile-menu__nav .menu-item').on('click', function(e){
+        jQuery('.sub-menu').not(jQuery(this).find(".sub-menu")).slideUp();
+        jQuery('.mobile-menu__nav .menu-item').not(jQuery(this)).removeClass("active");
+
+        jQuery(this).find(".sub-menu").slideToggle();
+        jQuery(this).toggleClass("active");
 
         e.stopPropagation();
     });
@@ -44,10 +43,10 @@ jQuery(document).ready(function () {
     new WOW().init();
 
     // Smooth scroll
-    $('.scrollto > a').click( function(){ // ловим клик по ссылке с классом go_to
-    var scroll_el = $(this).attr('href'); // возьмем содержимое атрибута href, должен быть селектором, т.е. например начинаться с # или .
-        if ($(scroll_el).length != 0) { // проверим существование элемента чтобы избежать ошибки
-        $('html, body').animate({ scrollTop: $(scroll_el).offset().top }, 500); // анимируем скроолинг к элементу scroll_el
+    jQuery('.scrollto > a').click( function(){ // ловим клик по ссылке с классом go_to
+    var scroll_el = jQuery(this).attr('href'); // возьмем содержимое атрибута href, должен быть селектором, т.е. например начинаться с # или .
+        if (jQuery(scroll_el).length != 0) { // проверим существование элемента чтобы избежать ошибки
+        jQuery('html, body').animate({ scrollTop: jQuery(scroll_el).offset().top }, 500); // анимируем скроолинг к элементу scroll_el
         }
         return false; // выключаем стандартное действие
     });
@@ -115,8 +114,8 @@ jQuery(document).ready(function () {
 	};
 
 	jQuery("#phone").click(function(){
-		jQuery(this).setCursorPosition(6);  
-	});  
+		jQuery(this).setCursorPosition(6);
+	});
 });
 
 //# sourceMappingURL=main.min.js.map

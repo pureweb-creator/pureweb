@@ -296,7 +296,7 @@
     .single-page{
          .section-titles.cover__title{
             margin-top: 50px;
-            text-align: left !important; 
+            text-align: left !important;
         }
         .single-page__grid{
             grid-template-columns: 1fr;
@@ -315,7 +315,7 @@
     .services__wrap .item {
         margin-bottom: 50px
     }
-    
+
     /* Work */
     .work .section-title {
         width: auto
@@ -336,7 +336,7 @@
         margin: 0;
         top: 0
     }
-    
+
     .portfolio .order-btn {
         margin-top: 50px
     }
@@ -355,8 +355,8 @@
 @media only screen and (max-width: 565px) {
     /* Specification */
     .container {
-        padding-left: 15px;
-        padding-right: 15px
+        padding-left: 5px;
+        padding-right: 5px
     }
     .section-title {
         font-size: 21px
@@ -529,7 +529,7 @@
     .blog-text{
         width: 100%;
     }
-    
+
     .blog-posts__item{
         padding: 10px 10px;
         width: calc(100% / 12 * 12 - 30px) !important;
@@ -592,7 +592,7 @@
     .recent-blog__item{
         margin: 0 0 15px 0;
     }
-    
+
     /* Pagination */
     .pagination{
         grid-column: 1/2;
@@ -660,6 +660,31 @@
     .footer .contact_info a i,
     .footer .contact_info span i {
         margin-right: 15px
+    }
+
+    // Profile
+    #hero{
+      padding-top: 0;
+    }
+    #rcl-office.wprecallblock #lk-conteyner{
+      height: 150px;
+      min-height: 100px !important
+    }
+    #rcl-office{
+      margin-top: 10px;
+    }
+    #recallbar{
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+    #recallbar .rcb_left,#recallbar .rcb_right{
+      margin: 0;
+    }
+    .cab_lt_sidebar{
+      margin-top: -50px;
+    }
+    .cab_bttn{
+      margin-bottom: 20px;
     }
 }
 @media only screen and (max-width: 425px){

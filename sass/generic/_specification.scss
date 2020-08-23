@@ -4,7 +4,7 @@
 }
 
 ::-webkit-scrollbar {
-  width: 15px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -17,7 +17,7 @@
 }
 
 .progress{
-    height: 8px;
+    height: 5px;
     width: 100%;
     position: fixed;
     z-index: 9999;
@@ -26,9 +26,8 @@
 
  .progress__bar{
     width: 0%;
-    height: 8px;
+    height: 2px;
     background: #F4461C;
-    border-radius: 0 6px 6px 0;
 }
 
 .work-process__timeline > li > a {
@@ -42,10 +41,6 @@
 .fa-caret-down{
     transition: all 0.5s ease-in-out;
     margin-left: 10px;
-}
-
-.preloader{
-    z-index: 9;
 }
 
 .hero{

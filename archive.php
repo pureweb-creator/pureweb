@@ -13,11 +13,7 @@ get_header();
     <div class="container">
         <div class="section-titles d-flex justify-content-between">
             <h2 class="section-title">
-                <?php $cats = get_the_category();
-                foreach ($cats as $cur_cat_title) {
-                	echo $cur_cat_title->name . " * ";
-                }
-                ?>
+                <?php echo esc_html_e("Вот что удалось найти"); ?>
             </h2>
         </div>
         <div class="portfolio-wrap tabs__content animated fadeIn active">
@@ -37,7 +33,7 @@ get_header();
                         </div>
                     </div>
                 </div>
-        		
+
         	<?php
             endwhile;
         	?>

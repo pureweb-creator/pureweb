@@ -126,15 +126,20 @@ add_action( 'widgets_init', 'pureweb_widgets_init' );
  */
 function pureweb_scripts() {
 	wp_enqueue_style( 'pureweb-style', get_stylesheet_uri() );
-    wp_enqueue_style( 'pureweb-animate', get_template_directory_uri() . '/layouts/animate.min.css' );
-    wp_enqueue_style( 'pureweb-main', get_template_directory_uri() . '/layouts/main.min.css' );
+	if(is_front_page() || is_page_template('template-home.php')){
+  	wp_enqueue_style( 'pureweb-animate', get_template_directory_uri() . '/layouts/animate.min.css' );
+	}
+  wp_enqueue_style( 'pureweb-main', get_template_directory_uri() . '/layouts/main.min.css' );
 
-    wp_enqueue_script( 'pureweb-jquery', 'https://code.jquery.com/jquery-3.4.1.min.js', array(), '1.0', true);
+  wp_enqueue_script( 'jquery');
 
-    wp_enqueue_script( 'pureweb-parallax', 'https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js', array(), '1.0', true );
-    wp_enqueue_script('pureweb-jquery-masked-input', get_template_directory_uri() . '/js/libs/jquery.maskedinput.min.js', array(), '1.0', true);
+	if(is_page_template('template-home.php')){
+		wp_enqueue_script( 'pureweb-wow', get_template_directory_uri() . '/js/libs/wow.min.js', array(), '1.0', true );
+		wp_enqueue_script( 'pureweb-jquery-masked-input', get_template_directory_uri() . '/js/libs/jquery.maskedinput.min.js', array(), '1.0', true);
+		wp_enqueue_script( 'pureweb-parallax', 'https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js', array(), '1.0', true );
+	}
+
 	wp_enqueue_script( 'pureweb-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '1.0', true );
-	wp_enqueue_script( 'pureweb-wow', get_template_directory_uri() . '/js/libs/wow.min.js', array(), '1.0', true );
 	wp_enqueue_script( 'pureweb-main', get_template_directory_uri() . '/js/main.min.js', array(), '1.0', true );
 
 	wp_enqueue_script( 'pureweb-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '1.0', true );
@@ -176,6 +181,11 @@ require get_template_directory() . '/inc/sample-config.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+/**
+ * WP-RECALL functions
+ */
+ require get_template_directory() . '/inc/wp-recall.php';
 
 /**
  * Hide admin bar in the site view
@@ -307,14 +317,13 @@ function codeless_remove_type_attr($tag, $handle) {
 /**
  * Cout of views
  */
-
 add_action('wp_head', 'views_count');
 
 function views_count(){
 	/* Settings */
 	$meta_key     = 'views'; // metabox key, where will be written count of views
-	$who_count    = 0; // Who visits cout? 0 - all, 1 - only the guests, 2 - only registered users
-	$exclude_bots = 1; // Exclude bots, robots, etc. 1(true) - yeas, exclude; 0(false) - include
+	$who_count    = 0;       // Who visits cout? 0 - all, 1 - only the guests, 2 - only registered users
+	$exclude_bots = 1;       // Exclude bots, robots, etc. 1(true) - yeas, exclude; 0(false) - include
 
 	global $user_ID, $post;
 	if (is_singular()){
@@ -326,14 +335,14 @@ function views_count(){
 		$should_count = false;
 
 		switch ( (int)$who_count ) {
-			case 0: 
+			case 0:
 				$should_count = true;
 				break;
-			case 1: 
+			case 1:
 				if( (int)$user_ID == 0 )
 					$should_count = true;
 				break;
-			case 2: 
+			case 2:
 				if( (int)$user_ID > 0 )
 					$should_count = true;
 				break;
@@ -364,7 +373,7 @@ function views_count(){
 function ale_page_links($custom_query) {
 	global $wp_query, $wp_rewrite;
 	$custom_query->query_vars['paged'] > 1 ? $current = $custom_query->query_vars['paged'] : $current = 1;
- 
+
 	$pagination = array(
 		'base'      => @add_query_arg('page','%#%'),
 		'format'    => '',
@@ -375,13 +384,13 @@ function ale_page_links($custom_query) {
 		'next_text' => '&#10148;',
 		'prev_text' => '&#10148;'
 		);
- 
+
 	if( $wp_rewrite->using_permalinks() )
 		$pagination['base'] = user_trailingslashit( trailingslashit( remove_query_arg( 's', get_pagenum_link( 1 ) ) ) . 'page/%#%/', 'paged' );
- 
+
 	if( !empty($custom_query->query_vars['s']) )
 		$pagination['add_args'] = array( 's' => get_query_var( 's' ) );
- 
+
 	echo paginate_links($pagination);
 }
 
@@ -397,7 +406,7 @@ function pw_custom_comment_form_default_fields($fields){
 add_filter('comment_form_fields', 'pw_move_fields');
 function pw_move_fields($fields){
 	$comment_field = $fields['comment'];
-	$cookie_field = $fields['cookies'];
+	$cookie_field  = $fields['cookies'];
 
 	unset( $fields['comment'] );
 	unset( $fields['cookies'] );

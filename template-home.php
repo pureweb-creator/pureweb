@@ -7,7 +7,7 @@
  *
  * @package pureweb
  */
-
+global $user_ID;
 get_header();
 $animation_delay = 0;
 ?>
@@ -145,7 +145,7 @@ if(have_posts()){
             <?php echo __("Блог"); ?>
         </h2>
         <div class="recent-blog d-flex">
-        <?php 
+        <?php
         $recent_blog = new WP_Query(array(
             'post_type'      => 'post',
             'posts_per_page' => '3',
@@ -163,6 +163,9 @@ if(have_posts()){
                         </div>
                     </div>
                     <div class="recent-blog__info">
+                      <!-- Meta info -->
+                      <div class="recent-blog__info_meta d-flex">
+                      <!-- Views count -->
                         <?php
                             if ( get_post_meta(get_the_ID(), "views", true) ){ ?>
                                 <span class="views"><i class="fa fa-eye"></i><?php echo get_post_meta(get_the_ID(), "views", true); ?></span>
@@ -170,16 +173,36 @@ if(have_posts()){
                                  <span class="views"><i class="fa fa-eye"></i>0</span>
                             <?php }
                         ?>
-                        <?php 
-                            if( get_comments_number(get_the_ID()) ): ?>
-                            <a href="<?php echo esc_url(get_permalink()) ?>/#comments"><span class="comments views"><i class="fa fa-comments"></i><?php echo get_comments_number(get_the_ID()); ?></span>
-                            </a>
-                           <?php endif;
+                        <!-- Likes -->
+                        <?php
+                          if(rcl_get_total_rating(get_the_ID(), 'post')):
+                            echo '<span class="likes views"><i class="fal fa-heart"></i>'.rcl_get_total_rating(get_the_ID(), 'post').'</span>';
+                          else:
+                            echo '<span class="likes views"><i class="fal fa-heart"></i>0</span>';
+                          endif;
                         ?>
+                        <!-- Comments number -->
+                        <?php
+                            if( get_comments_number(get_the_ID()) ): ?>
+                            <a href="<?php echo esc_url(get_permalink()) ?>/#comments"><span class="comments views"><i class="fal fa-comments"></i><?php echo get_comments_number(get_the_ID()); ?></span>
+                            </a>
+                          <?php else:
+                            echo '<a href="!#"><span class="comments views"><i class="fal fa-comments"></i>0</span>
+                            </a>';
+                          endif;
+                        ?>
+                      </div>
+                        <!-- Post title -->
                         <h3 class="recent_blog__title" title="<?php echo esc_attr(get_the_title()); ?>">
                             <a href="<?php echo esc_url(get_permalink()); ?>"><?php the_title(); ?></a>
                         </h3>
+                        <!-- Excerpt -->
                         <div class="recent_blog__excerpt"><?php the_excerpt(); ?></div>
+                        <!-- Author link -->
+                        <a class="recent_blog__author" href="<?php echo esc_url(rcl_format_url(get_author_posts_url(get_the_author_meta('ID'), 'view'))); ?>">
+                          <?php echo esc_html_e("Автор: ") ."<span class='name'>".get_the_author()."</span>"; ?>
+                        </a>
+                        <!-- View full post -->
                         <a href="<?php echo esc_url(get_permalink()); ?>" class="recent_blog__link" ><?php echo __('Читать'); ?></a>
                     </div>
                 </div>

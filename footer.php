@@ -14,7 +14,9 @@ global $pureweb_redux;
     <div class="container">
         <div class="footer__in d-flex">
             <a href="<?php echo esc_url(get_home_url("/")) ?>" class="logo">
+              <?php if($pureweb_redux['home-logo']): ?>
                 <img src="<?php echo $pureweb_redux['home-logo']['url']; ?>" alt="footer logo">
+              <?php else: echo bloginfo('name'); endif; ?>
             </a>
             <div class="contact_info">
               <a href="tel:<?php echo $pureweb_redux['phone_number']; ?>" class="contact__phone"><i class="fa fa-phone"></i> <?php echo $pureweb_redux['phone_number']; ?></a>
@@ -25,8 +27,9 @@ global $pureweb_redux;
 </footer>
 <?php wp_footer(); ?>
 <script type="text/javascript" src="https://spikmi.com/Widget?Id=3635"></script>
+<?php if(is_front_page()): ?>
 <script>
-    $(document).ready(function () {
+    jQuery(document).ready(function () {
        // Parallax
         var scene = document.getElementById('first-scene');
         var parallaxInstance = new Parallax(scene);
@@ -41,8 +44,9 @@ global $pureweb_redux;
         var parallaxInstance = new Parallax(scene4);
 
         var scene5 = document.getElementById('fifth-scene');
-        var parallaxInstance = new Parallax(scene5); 
+        var parallaxInstance = new Parallax(scene5);
     });
 </script>
+<?php endif; ?>
 </body>
 </html>

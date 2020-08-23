@@ -1,38 +1,36 @@
 .sub-menu{
     background: #fff;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 0 40px #ccc;
+    padding: 15px;
+    padding-left: 0;
+    padding-right: 0;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.12), 0px 2px 4px rgba(0,0,0,0.24);
     position: absolute;
-    top: 50px;
-    left: 50%;
-    transform: translateX(-50%) translateY(30px);
+    top: 45px;
+    right: 0;
+    transform: translateX(0%) translateY(30px);
     transition: all .3s ease;
-    width: 210px;
+    width: 150px;
     visibility: hidden;
     opacity: 0;
     li{
         transition: unset;
         text-align: center;
+        padding: 10px;
+        text-align: left;
+        margin-right: 0 !important;
     }
-
-    &::before{
-         content: "";
-        width: 0;
-        height: 0;
-        border: 10px solid transparent;
-        border-bottom-color: #fff;
-        position: absolute;
-        top: -20px;
-        left: 50%;
-        transform: translateX(-50%);
+    li:hover{
+      border-color: transparent !important;
+      border-radius: 0 !important;
+      background: rgba(0,0,0,.1)
     }
 }
 
 .menu-item-has-children:hover .sub-menu{
     visibility: visible;
     opacity: 1;
-    transform: translateX(-50%) translateY(0px);
+    transform: translateX(0) translateY(0px);
 }
 
 .menu-item-has-children,

@@ -1,0 +1,157 @@
+#recallbar{
+  background: #42046c;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .rcb_right_menu{
+    width: auto;
+  }
+  .pr_sub_menu{
+    background: #fff;
+    border-top: unset;
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.12), 0px 4px 4px rgba(0,0,0,0.24);
+
+    a, i{
+      color: #0048ff !important
+    }
+
+    .rcb_line:hover{
+      background: rgba(0,0,0,0.1)
+    }
+
+
+  }
+  .rcb_right_menu__avatar{
+    align-items: center;
+  }
+  .rcb_right_menu img{
+    border-radius: 100px;
+    margin-right: 5px;
+  }
+  .rcb_right_menu:hover{
+    border: none
+  }
+}
+
+
+#rcl-office{
+  margin-top: 28px;
+  padding-bottom: 50px;
+
+  .cab_lt_line{
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    & > * {
+      width: 50%;
+    }
+  }
+
+  .cab_lt_sidebar{
+    margin-right: 20px;
+
+    .recall-button{
+      .rcli{
+        border: 0;
+        background: transparent
+      }
+      &:hover{
+        .rcli{
+          background: rgba(0,0,0,0.2)
+        }
+      }
+    }
+
+    #rcl-avatar img{
+      border-radius: 7px;
+    }
+
+    .cab_bttn{
+      margin-top: 15px;
+      overflow: hidden;
+    }
+
+    #lk-menu, .cab_bttn{
+      border-radius: 7px;
+      a{
+        margin: 0;
+      }
+
+      span{
+        &::after{
+          display: none;
+        }
+      }
+    }
+  }
+
+  &.wprecallblock #lk-conteyner{
+    height: 300px;
+    background-attachment: fixed;
+  }
+
+  .rcl-content{
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.12), 0px 4px 4px rgba(0,0,0,0.24);
+  }
+
+  .pw_lk_container{
+    margin-top: -100px;
+  }
+
+  .recall_content_block{
+    background: #fff;
+    border-radius: 7px;
+    padding: 10px 20px;
+  }
+
+  #delete_acc, #cpsubmit{
+    padding: 7px 10px;
+    border-radius: 3px;
+  }
+
+  #delete_acc{
+    background: #F44336;
+  }
+}
+
+.wprecallblock #lk-conteyner{
+  max-width: 100%;
+  width: 100%
+}
+
+.view-user-info{
+  font-size: 14px;
+  &__title{
+    font-family: Open Sans, sans-serif;
+  }
+
+  &__item_status{
+    font-style: italic;
+    padding-right: 20px;
+    display: block;
+    margin-bottom: 20px;
+    color: rgba(0, 0, 0, 1);
+    br{
+      display: none;
+    }
+  }
+
+  &__item{
+    padding: 10px 20px;
+    width: calc(100% + 40px);
+    margin-left: -20px;
+    &:nth-child(odd){
+      background: rgba(0,0,0,0.1)
+    }
+    &:last-child{
+      border-bottom: 0;
+    }
+  }
+
+  &__item__title{
+    display: block;
+    margin-right: 10px;
+    color: rgba(0, 0, 0, 0.5);
+  }
+}
