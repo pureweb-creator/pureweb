@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * Template name: Blog
  * Author: Roman Semenihin / PUREWEB
@@ -15,9 +15,9 @@ get_header();
 while(have_posts()){
 	the_post();
 	?>
-	
+
 	<section class="blog-wrapper">
-		<div class="container">	
+		<div class="container">
 			<h2 class="section-title blog-title"><?php the_title(); ?></h2>
 			<div class="section-text blog-text">
 				<?php the_content(); ?>
@@ -38,11 +38,11 @@ while(have_posts()){
 				'paged'          => $paged
 			)); ?>
 			<div class="blog-posts d-flex">
-				<?php 
+				<?php
 				if ($blog_post_output->have_posts()){
 					while ($blog_post_output->have_posts()) {
 						$blog_post_output->the_post(); ?>
-						
+
 						<a href="<?php echo esc_url(get_permalink()); ?>" class="d-flex blog-posts__item <?php echo get_field('size'); ?>">
 							<?php
 							if (get_the_post_thumbnail(get_the_ID(), "full", true)){ ?>
@@ -51,16 +51,17 @@ while(have_posts()){
 							?>
 							<div class="item__content">
 								<div class="item__head">
+									<?php echo get_post_field( 'post-size-field', get_the_ID(), 'display' ); ?>
 									<h3 class="item__title" style="color: #fff"><?php the_title(); ?></h3>
 									<?php
 									if ( get_post_meta(get_the_ID(), "views", true) ){ ?>
 										<span class="views"><i class="fa fa-eye"></i><?php echo get_post_meta(get_the_ID(), "views", true); ?></span>
 									<?php }
 									?>
-									<?php 
+									<?php
 			                            if( get_comments_number(get_the_ID()) ): ?>
 			                            <span class="comments views"><i class="fa fa-comments"></i><?php echo get_comments_number(get_the_ID()); ?></span>
-			                            
+
 			                           <?php endif;
 			                        ?>
 									<span class="pubdate">
@@ -107,6 +108,6 @@ while(have_posts()){
 
 <?php
 
-}	
+}
 
 get_footer();

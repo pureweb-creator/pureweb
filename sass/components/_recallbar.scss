@@ -3,6 +3,19 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  // Left menu
+  .pureweb_profile-random-phrase{
+    color: rgba(255,255,255,1);
+    font-style: italic;
+  }
+
+  #pureweb_rcl-custom-notification{
+    i{
+      font-size: 14px !important;
+    }
+  }
+
   .rcb_right_menu{
     width: auto;
   }
@@ -18,8 +31,6 @@
     .rcb_line:hover{
       background: rgba(0,0,0,0.1)
     }
-
-
   }
   .rcb_right_menu__avatar{
     align-items: center;
@@ -38,13 +49,37 @@
   margin-top: 28px;
   padding-bottom: 50px;
 
+  .cab_lt_title{
+    text-align: center;
+  }
+
+  .cab_lt_menu{
+    font-size: 14px;
+    text-align: center;
+    height: 35px;
+    display: flex !important;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 7px;
+  }
+
+  .rcl-action{
+    margin: 0;
+  }
+
   .cab_lt_line{
     box-shadow: none;
     display: flex;
     align-items: center;
     padding: 10px 0;
-    & > * {
-      width: 50%;
+    justify-content: center;
+
+    .cab_lt_wrapper{
+      max-width: 760px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
   }
 
@@ -97,6 +132,9 @@
 
   .pw_lk_container{
     margin-top: -100px;
+    display: flex;
+    justify-content: center;
+
   }
 
   .recall_content_block{
@@ -113,6 +151,12 @@
   #delete_acc{
     background: #F44336;
   }
+}
+
+
+#rcl-tabs{
+  max-width: 550px;
+  width: 100%;
 }
 
 .wprecallblock #lk-conteyner{

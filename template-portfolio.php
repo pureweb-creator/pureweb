@@ -3,9 +3,9 @@
  * Template name: Portfolio
  * Author: Roman Semenikhin
  *
- * The template for displaying portfolio works
+ * The template for displaying all portfolio works
  * @link https://developer.wordpress.org/reference/functions/register_post_type/
- * 
+ *
  * @package pureweb
  */
 
@@ -20,7 +20,7 @@ global $pureweb_redux;
             <h2 class="section-title">
                 <?php the_title(); ?>
             </h2>
-            <?php 
+            <?php
             wp_nav_menu(array(
                 'theme_location' => 'work_categories_list',
                 'menu'           => '',

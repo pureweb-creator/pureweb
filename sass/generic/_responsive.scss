@@ -349,6 +349,11 @@
     .feedback .feedback-wrap {
         width: auto
     }
+
+    /* Profile */
+    .cab_lt_title{
+      width: auto !important;
+    }
 }
 
 /* for phones - screens less than 768px wide */
@@ -680,8 +685,11 @@
     #recallbar .rcb_left,#recallbar .rcb_right{
       margin: 0;
     }
+    #rcl-office .pw_lk_container{
+      flex-direction: column;
+    }
     .cab_lt_sidebar{
-      margin-top: -50px;
+      margin-top: -25px;
     }
     .cab_bttn{
       margin-bottom: 20px;
@@ -707,5 +715,17 @@
 
     .page-template-template-portfolio .portfolio .section-tab-navigation li {
         padding: 0 5px 11px 5px
+    }
+
+    // Profile
+    .container{
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+    #rcl-office .recall_content_block{
+      padding: 10px 5px;
+    }
+    .pureweb_profile-random-phrase{
+      display: none;
     }
 }
