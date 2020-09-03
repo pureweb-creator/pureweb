@@ -10,10 +10,19 @@
     font-style: italic;
   }
 
-  #pureweb_rcl-custom-notification{
+  .rcb_icons{
     i{
-      font-size: 14px !important;
+      font-size: 16px !important;
     }
+  }
+
+  .rcb_nmbr{
+    height: 15px;
+    width: 15px;
+    line-height: 15px;
+    position: absolute;
+    right: 0;
+    font-size: 9px;
   }
 
   .rcb_right_menu{
@@ -48,6 +57,15 @@
 #rcl-office{
   margin-top: 28px;
   padding-bottom: 50px;
+
+  .cab_lt_sidebar .recall-button:hover .rcli,
+  .cab_lt_sidebar .recall-button:hover .rcli, .cab_lt_sidebar .recall-button:hover span{
+    background: transparent !important;
+  }
+
+  .cab_lt_sidebar .recall-button:hover{
+    background: darken(rgb(36, 0, 181),10);
+  }
 
   .cab_lt_title{
     text-align: center;

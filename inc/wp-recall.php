@@ -40,9 +40,17 @@ if(function_exists('wp_recall')){
         'label'   => __('Новые сообщения'),
         'counter' => rcl_chat_noread_messages_amount( get_current_user_id() )
       ));
+
+      rcl_bar_add_icon('pureweb_rcl-userslist',
+      array(
+        'icon'    => 'fa-users',
+        'url'     => rcl_format_url(get_author_posts_url($user_ID,'userlist')) . 'tab=userlist',
+        'label'   => __('Все люди')
+      ));
     }
     add_action('rcl_bar_setup', 'pureweb_rcl_bar_add_icon', 10);
   }
+
 
   /**
    * Add new item to user menu
