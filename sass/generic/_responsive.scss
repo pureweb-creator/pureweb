@@ -250,6 +250,10 @@
     .accordion {
         width: auto
     }
+    // Recallbar
+    .pureweb_profile-random-phrase{
+      display: none;
+    }
 }
 
 /* for tablets - screens equal to or greater than 768px wide */
@@ -724,8 +728,5 @@
     }
     #rcl-office .recall_content_block{
       padding: 10px 5px;
-    }
-    .pureweb_profile-random-phrase{
-      display: none;
     }
 }

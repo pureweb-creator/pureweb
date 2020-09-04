@@ -19,7 +19,7 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 		'taxonomy'     => 'category',
 		'hide_empty'   => false
 	));
-	echo '<h3 class="sidebar__title">'.__('Категории').'</h3>';
+	echo '<h3 class="sidebar__title">'.pll__('Категории').'</h3>';
 	echo '<ul class="sidebar_categories">';
 	// print_r($cats);
 	foreach ($cats as $cat) {
@@ -42,7 +42,7 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
      $archive_day   = get_the_time( 'd' );
 
 
-	echo '<h3 class="sidebar__title">'. __('Последние посты') .'</h3>'; ?>
+	echo '<h3 class="sidebar__title">'. pll__('Последние публикации') .'</h3>'; ?>
 	<?php foreach ($recent_posts as $post) { ?>
 		<a href="<?php echo get_permalink($post['ID']); ?>" class="recent-post d-flex">
 			<div class="recent-post__thumbnail">
@@ -66,7 +66,7 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 
 	<div class="page-sidebar__box">
 	<?php
-	echo '<h3 class="sidebar__title">'. __('Теги') .'</h3>';
+	echo '<h3 class="sidebar__title">'. pll__('Теги') .'</h3>';
 
 	$tags = get_tags(array(
 		'hide_empty' => true));

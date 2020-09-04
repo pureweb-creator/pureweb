@@ -45,7 +45,7 @@ while (have_posts()):
 	        <?php if(get_field('deadline')){ ?>
 	        <li class="mask__info-item">
 	            <img src="<?php echo $pureweb_redux['time_icon']['url'] ?>" alt="Deadline icon" class="item__image" width="26px" height="26px">
-	            <span class="item__name"><?php echo $pureweb_redux['deadline'] ?></span>
+	            <span class="item__name"><?php echo pll__("Срок выполнения"); ?></span>
 	            <span class="item__text">
 	            <?php
 	            if($deadline){
@@ -67,13 +67,13 @@ while (have_posts()):
 	        <?php if(get_field('price')){ ?>
 	        <li class="mask__info-item">
 	            <img src="<?php echo $pureweb_redux['price_icon']['url'] ?>" alt="Price icon" class="item__image" width="26px" height="26px" width="26px" height="26px">
-	            <span class="item__name"><?php echo $pureweb_redux['price']; ?></span>
+	            <span class="item__name"><?php echo pll__("Стоимость работы"); ?></span>
 	            <span class="item__text"><?php the_field('price'); ?></span>
 	        </li>
 	        <?php } ?>
 	        <li class="mask__info-item">
 	            <img src="<?php echo $pureweb_redux['task_icon']['url']; ?>" alt="Work Category Icon" class="item__image" width="26px" height="26px">
-	            <span class="item__name"><?php echo $pureweb_redux['task'] ?></span>
+	            <span class="item__name"><?php echo pll__("Категория"); ?></span>
 	            <span class="item__text">
 	            	<?php
 	                // Вывод категории поста
@@ -87,7 +87,7 @@ while (have_posts()):
 	        <?php if(get_field('mark_content')){ ?>
 	        <li class="mask__info-item">
 	            <img src="<?php echo $pureweb_redux['complexity_icon']['url'] ?>" alt="Complexity Icon" class="item__image" width="26px" height="26px">
-	            <span class="item__name"><?php echo $pureweb_redux['complexity']; ?></span>
+	            <span class="item__name"><?php echo pll__("Сложность"); ?></span>
 	            <span class="item__text">
 	               <?php
 	               $stars_count = get_field('mark_content');
@@ -109,7 +109,7 @@ while (have_posts()):
 	      <?php $p_link_url = get_field('portfolio_link_address'); ?>
 	      <?php if($p_link_url && $p_link_url != ""){ ?>
 	          <a href="<?php echo esc_url($p_link_url); ?>">
-	              <span><?php echo __("Ссылка на работу в интернете: ");  ?></span>
+	              <span><?php echo pll__("Ссылка на работу в интернете: ");  ?></span>
 	              <?php echo '<span style="text-decoration: underline; color: red">'.esc_url($p_link_url).'</span>'; ?>
 	          </a>
 	      <?php } else { echo ''; } ?>
@@ -131,7 +131,7 @@ while (have_posts()):
 			<article class="single-page__article">
 				<div class="article__info" style="top: 0;">
 					<br>
-					<?php echo '<h2 class="sidebar__title">'.__("Похожие работы").'</h2>'; ?>
+					<?php echo '<h2 class="sidebar__title">'.pll__("Похожие работы").'</h2>'; ?>
 					<div class="page-sidebar__box page-sidebar__box--recent-posts">
 					<?php
 					$cur_cat       = get_the_terms(get_the_ID(), 'portfolio_cat');

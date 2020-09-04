@@ -168,12 +168,12 @@ if(is_front_page()){ ?>
             <i class="fa fa-bars"></i>
             <nav class="nav">
                 <?php
-                wp_nav_menu(array(
-                    'theme_location'  => 'menu-2',
-                    'menu'            => '',
-                    'container'       => false,
-                    'menu_class'      => 'menu d-flex',
-                ));
+	                wp_nav_menu(array(
+	                    'theme_location'  => 'menu-2',
+	                    'menu'            => '',
+	                    'container'       => false,
+	                    'menu_class'      => 'menu d-flex',
+	                ));
                 ?>
             </nav>
         </div>

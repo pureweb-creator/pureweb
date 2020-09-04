@@ -70,7 +70,7 @@ if (have_posts()){
 		</div>
 		<div class="related">
 			<?php
-			echo "<br><br><h3>" . "<a href='javascript:void(0)' class='related__load-new' onclick='location.reload();'>".__("&#8634;")."</a>" . __('Статьи на эту же тему') . "</h3><br><br>";
+			echo "<br><br><h3>" . "<a href='javascript:void(0)' class='related__load-new' onclick='location.reload();'>".__("&#8634;")."</a>" . pll__('Похожие статьи') . "</h3><br><br>";
 
 			// Related by catagories
 			$cur_cat = get_the_category(get_the_ID());

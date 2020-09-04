@@ -5,15 +5,29 @@ if(function_exists('wp_recall')){
    */
   if(is_user_logged_in()){
     function pureweb_get_random_phrase(){
-      $phrase = "Падает тот, кто бежит, кто ползет - не падает!
-      Не ошибается тот, кто ничего не делает
-      Целься в луну, даже если промахнешься - останешься среди звезд!
-      В поисках разума не потеряй сердце!
-      Кто ищет, тот найдет
-      Находишь всега то, что не искал
-      Не все еще потеряно
-      Не доходите до крайности в поисках золотой середины
-      Потеряешь - не жалей, найдешь - не радуйся";
+
+      if(pll_current_language('slug') == 'ru'){
+        $phrase = "Падает тот, кто бежит, кто ползет - не падает!
+        Не ошибается тот, кто ничего не делает
+        Целься в луну, даже если промахнешься - останешься среди звезд!
+        В поисках разума не потеряй сердце!
+        Кто ищет, тот найдет
+        Находишь всега то, что не искал
+        Не все еще потеряно
+        Не доходите до крайности в поисках золотой середины
+        Потеряешь - не жалей, найдешь - не радуйся";
+
+      } else if (pll_current_language('slug') == 'en'){
+        $phrase = "The one who runs, who crawls - does not fall!
+        The one who does nothing is not mistaken
+        Aim for the moon, even if you miss, you stay among the stars!
+        In search of reason, do not lose your heart!
+        He who seeks will find
+        You find everything that you were not looking for
+        All is not lost
+        Don't go to the extreme looking for a middle ground
+        If you lose - do not regret, if you find - do not rejoice";
+      }
 
       // Split text into lines
       $phrase = explode("\n", $phrase);
@@ -45,7 +59,7 @@ if(function_exists('wp_recall')){
       array(
         'icon'    => 'fa-users',
         'url'     => rcl_format_url(get_author_posts_url($user_ID,'userlist')) . 'tab=userlist',
-        'label'   => __('Все люди')
+        'label'   => __('Все пользователи')
       ));
     }
     add_action('rcl_bar_setup', 'pureweb_rcl_bar_add_icon', 10);
@@ -63,7 +77,7 @@ if(function_exists('wp_recall')){
      rcl_bar_add_menu_item('my-profile-link', array(
        'url'  => rcl_format_url(get_author_posts_url($userID, 'view')) . 'tab=view',
        'icon' => 'fa-id-card-o',
-       'label'=> __('Карточка профиля')
+       'label'=> __('Profile card')
      ));
    }
    add_action('rcl_bar_setup', 'pureweb_rcl_bar_add_menu_item', 10);

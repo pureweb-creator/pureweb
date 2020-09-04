@@ -34,7 +34,7 @@
     $sample_patterns_path = ReduxFramework::$_dir . '../sample/patterns/';
     $sample_patterns_url  = ReduxFramework::$_url . '../sample/patterns/';
     $sample_patterns      = array();
-    
+
     if ( is_dir( $sample_patterns_path ) ) {
 
         if ( $sample_patterns_dir = opendir( $sample_patterns_path ) ) {
@@ -329,13 +329,7 @@
                 'compiler' => 'true',
                 'subtitle' => __( 'Upload clock icon', 'redux-framework-demo' ),
             ),
-
-            array(
-                'id'       => 'deadline',
-                'type'     => 'text',
-                'title'    => __( 'deadline title', 'redux-framework-demo' ),
-            ),
-
+            
             array(
                 'id'       => 'price_icon',
                 'type'     => 'media',
@@ -343,12 +337,6 @@
                 'title'    => __( 'Media w/ URL', 'redux-framework-demo' ),
                 'compiler' => 'true',
                 'subtitle' => __( 'Upload price icon', 'redux-framework-demo' ),
-            ),
-
-            array(
-                'id'       => 'price',
-                'type'     => 'text',
-                'title'    => __( 'price title', 'redux-framework-demo' ),
             ),
 
             array(
@@ -361,36 +349,12 @@
             ),
 
             array(
-                'id'       => 'task',
-                'type'     => 'text',
-                'title'    => __( 'task title', 'redux-framework-demo' ),
-            ),
-
-            array(
                 'id'       => 'complexity_icon',
                 'type'     => 'media',
                 'url'      => true,
                 'title'    => __( 'Media w/ URL', 'redux-framework-demo' ),
                 'compiler' => 'true',
                 'subtitle' => __( 'Upload complexity icon', 'redux-framework-demo' ),
-            ),
-
-            array(
-                'id'       => 'complexity',
-                'type'     => 'text',
-                'title'    => __( 'complexity title', 'redux-framework-demo' ),
-            ),
-
-            array(
-                'id'       => 'category',
-                'type'     => 'text',
-                'title'    => __( 'Category Title', 'redux-framework-demo' ),
-            ),
-
-             array(
-                'id'       => 'view_more',
-                'type'     => 'text',
-                'title'    => __( 'View More text', 'redux-framework-demo' ),
             ),
         )
     ) );
@@ -617,4 +581,3 @@
             }
         }
     }
-

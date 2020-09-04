@@ -30,10 +30,10 @@ if ( post_password_required() ) {
 		<h3 class="comments-title">
 			<?php
 			$pureweb_comment_count = get_comments_number();
-			
+				echo pll__('Kомментарии');
 				printf(
 					/* translators: 1: title. */
-					esc_html__( 'Комментарии к &ldquo;%1$s&rdquo;', 'pureweb' ),
+					esc_html__( '&nbsp;&ldquo;%1$s&rdquo;', 'pureweb' ),
 					'<span style="line-height: 1.5em">' . get_the_title() . '</span>'
 				);
 			?>

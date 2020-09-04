@@ -50,7 +50,7 @@ if(have_posts()){
         </div>
     </div>
 </section>
-<section class="work" id="work" data-type="background" data-speed="10">
+<section id="work" class="work" data-type="background" data-speed="10">
     <div class="bg-elements wow fadeInLeft" data-wow-duration="2s">
         <img src="<?php echo get_template_directory_uri() ?>/img/rocket_and_planet.png" alt="rocket and planet" class="rocket">
     </div>
@@ -98,7 +98,8 @@ if(have_posts()){
             $portfolio_args = array(
                 'post_type'      => 'portfolio',
                 'posts_per_page' => '4',
-                'favourite'      => 'Yes'
+                'order'          => 'DESC'
+                // 'favourite'      => 'Yes'
             );
             $portfolio = new WP_Query($portfolio_args);
             ?>
@@ -110,7 +111,7 @@ if(have_posts()){
                         <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="work" class="portfolio-item__thumbnail">
                         <div class="mask">
                             <a href="<?php echo esc_url(get_permalink()); ?>" class="look_item">
-                                <span><?php echo $pureweb_redux['view_more'] ?></span>
+                                <span><?php echo pll__("Подробнее"); ?></span>
                                 <i class="fa fa-link"></i>
                             </a>
                         </div>
@@ -124,11 +125,11 @@ if(have_posts()){
         </div>
         <div class="order">
             <br><br>
-            <a href="<?php echo get_home_url(); ?>/?page_id=87" class="btn order-btn scrollto wow zoomIn"><?php the_field('portfolio_button_text'); ?></a>
+            <a href="<?php echo esc_url(get_page_link(481)); ?>" class="btn order-btn scrollto wow zoomIn"><?php the_field('portfolio_button_text'); ?></a>
         </div>
     </div>
 </section>
-<section class="blog" id="blog" data-type="background" data-speed="19">
+<section id="blog" class="blog" data-type="background" data-speed="19">
     <div class="universe">
         <div id="third-scene" class="universe__layers" data-friction-x="0.1" data-friction-y="0.1" data-scalar-y="12">
             <div data-depth="0.40" class="layer">
@@ -142,7 +143,7 @@ if(have_posts()){
     </div>
     <div class="container">
         <h2 class="section-title wow fadeInUp" style="color: #fff">
-            <?php echo __("Блог"); ?>
+            <?php echo pll__("Блог"); ?>
         </h2>
         <div class="recent-blog d-flex">
         <?php
@@ -203,7 +204,7 @@ if(have_posts()){
                           <?php echo esc_html_e("Автор: ") ."<span class='name'>".get_the_author()."</span>"; ?>
                         </a>
                         <!-- View full post -->
-                        <a href="<?php echo esc_url(get_permalink()); ?>" class="recent_blog__link" ><?php echo __('Читать'); ?></a>
+                        <a href="<?php echo esc_url(get_permalink()); ?>" class="recent_blog__link" ><?php echo pll__('Читать'); ?></a>
                     </div>
                 </div>
             <?php endwhile;
@@ -242,7 +243,13 @@ if(have_posts()){
         </a>
         <div class="feedback-wrap wow fadeInRight">
             <div class="feedback-container">
-                <?php echo do_shortcode('[contact-form-7 id="11" title="Contact form 1"]'); ?>
+                <?php
+                if(pll_current_language('slug') == 'ru'){
+                  echo do_shortcode('[contact-form-7 id="11" title="Contact form 1"]');
+                } else if (pll_current_language('slug') == 'en'){
+                  echo do_shortcode('[contact-form-7 id="547" title="Contact form 1 English"]');
+                }
+                ?>
             </div>
         </div>
     </div>

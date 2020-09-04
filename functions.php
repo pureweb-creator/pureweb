@@ -45,11 +45,11 @@ if ( ! function_exists( 'pureweb_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-1'               => esc_html__( 'Primary', 'pureweb' ),
+			'menu-1'               => esc_html__('Home menu 1', 'pureweb' ),
 			'menu-2'               => esc_html__('Home menu 2', 'pureweb'),
-            'work_process'         => esc_html__('Work Process List', 'pureweb'),
-            'work_categories_list' => esc_html__('Work Categories List', 'pureweb'),
-            'social_menu'          => esc_html__('Social Menu', 'pureweb')
+      'work_process'         => esc_html__('Work Process List', 'pureweb'),
+      'work_categories_list' => esc_html__('Work Categories List', 'pureweb'),
+      'social_menu'          => esc_html__('Social Menu', 'pureweb')
 		) );
 
 		/*
@@ -489,3 +489,25 @@ function pw_comment( $comment, $args, $depth ) {
 		</div>
 	<?php }
 }
+
+// Polylang
+pll_register_string('pureweb', 'Блог');
+pll_register_string('pureweb', 'Читать');
+
+#portfolio
+pll_register_string('pureweb', 'Срок выполнения');
+pll_register_string('pureweb', 'Стоимость работы');
+pll_register_string('pureweb', 'Категория');
+pll_register_string('pureweb', 'Сложность');
+pll_register_string('pureweb', 'Подробнее');
+pll_register_string('pureweb', 'Ссылка на работу в интернете: ');
+pll_register_string('pureweb', 'Похожие работы');
+
+#sidebar
+pll_register_string('pureweb', 'Категории');
+pll_register_string('pureweb', 'Последние публикации');
+pll_register_string('pureweb', 'Теги');
+
+#posts
+pll_register_string('pureweb', 'Похожие статьи');
+pll_register_string('pureweb', 'Kомментарии');
