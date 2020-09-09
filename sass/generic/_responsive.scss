@@ -9,6 +9,13 @@
         padding-left: 30px;
         padding-right: 30px
     }
+
+    .cab_lt_line{
+      .container{
+        width: 80%;
+      }
+    }
+
     #first-scene {
         width: 790px;
         height: 635px
@@ -127,27 +134,32 @@
         transform: unset !important;
     }
 
+    // Recallbar
+    #recallbar .search{
+      display: none;
+    }
+
     /* Blog */
     .blog-posts__item{
         width: calc(100% / 12 * 6 - 30px) !important;
     }
-
     /* Article */
     .single-page{
         .cover__title{
-            margin-left: 50px;
-            font-size: 50px;
+            font-size: 40px;
+            line-height: 1.3em;
+            max-width: 100%;
         }
         .single-page{
             padding: 20px 0!important;
         }
         .single-page__cover{
-            height: 250px;
+          min-height: 250px;
         }
 
         .single-page__grid{
             grid-gap: 20px;
-            margin-top: 200px;
+            margin-top: -50px;
         }
 
         .single-page__article{
@@ -254,6 +266,37 @@
     .pureweb_profile-random-phrase{
       display: none;
     }
+
+    // Discount
+    .discount{
+      width: 90%;
+      z-index: 9999;
+
+      .discount__amout{font-size: 10px;}
+      .discount h4{
+        margin-bottom: 5px;
+      }
+      .discount__text,.discount__btn,.discount h4{
+        font-size: 11px;
+
+      }
+    }
+
+    // Profile
+    #rcl-office{
+      .pw_lk_container{
+        width: auto;
+      }
+
+      .cab_lt_line .container,
+      .cab_lt_line .container{
+        width: 100%;
+      }
+
+      #lk-menu .recall-button{
+        padding: 10px 7px;
+      }
+    }
 }
 
 /* for tablets - screens equal to or greater than 768px wide */
@@ -299,12 +342,11 @@
     /* Article */
     .single-page{
          .section-titles.cover__title{
-            margin-top: 50px;
             text-align: left !important;
         }
         .single-page__grid{
             grid-template-columns: 1fr;
-            margin-top: 150px;
+            margin-top: -50px;
         }
     }
 
@@ -358,6 +400,33 @@
     .cab_lt_title{
       width: auto !important;
     }
+    // #lk-conteyner .cab_lt_menu{
+    //   display: block !important;
+    // }
+    #lk-menu{
+      // display: none;
+    }
+
+    #rcl-office{
+      .cab_lt_line .user-shortinfo{
+       bottom: 100px;
+     }
+
+     .pw_lk_container{
+       grid-template-columns: 1fr;
+     }
+
+     .pw_lk_container .users .userlist{
+       grid-template-columns: repeat(5, 1fr);
+     }
+
+     #rcl-tabs{
+       max-width: 100%;
+     }
+    }
+    .rcl-table__not-header .rcl-table__row{
+      border: none;
+    }
 }
 
 /* for phones - screens less than 768px wide */
@@ -372,6 +441,14 @@
     }
     .btn {
         padding: 10px 32px
+    }
+
+    // Order site
+    .order-site{
+      padding: 40px 20px 40px 20px;
+      .input-group{
+        // &__jnp
+      }
     }
 
     /* Mobile menu */
@@ -430,7 +507,7 @@
         justify-content: space-between;
     }
     .hero .heading .logo{
-        width: 30px;
+      display: none;
     }
     .contact__phone, .contact__mail{
         display: none;
@@ -676,7 +753,7 @@
       padding-top: 0;
     }
     #rcl-office.wprecallblock #lk-conteyner{
-      height: 150px;
+      // height: 150px;
       min-height: 100px !important
     }
     #rcl-office{
@@ -695,38 +772,251 @@
     .cab_lt_sidebar{
       margin-top: -25px;
     }
+    .lk-sidebar{
+      width: 170px !important;
+    }
+    .cab_lt_menu{
+      display: flex !important;
+    }
     .cab_bttn{
       margin-bottom: 20px;
     }
+    #recallbar .search{
+      display: none;
+    }
+    .search.mobile-search{
+      width: 100%;
+      display: flex;
+      .mobile-logo{
+        display: block !important;
+        position: absolute;
+        width: 30px;
+        right: 7px;
+        margin-right: 0 !important;
+        height: 26.11px;
+      }
+      input{
+        height: 45px;
+        padding-left: 75px;
+        padding-right: 40px;
+        box-shadow: 0px 0px 2px rgba(0,0,0,0.12), 0px 2px 2px rgba(0,0,0,0.24);
+      }
+      .fa-bars{
+        position: absolute;
+        left: 19px;
+        font-size: 18px;
+        color: #000;
+        opacity: .54;
+      }
+      button{
+        left: 40px;
+        i{
+          color: #000;
+          font-size: 18px;
+          opacity: .54;
+        }
+      }
+    }
 }
 @media only screen and (max-width: 425px){
+    // Recallbar
+    #recallbar .fal.fa-home{
+      font-size: 22px;
+    }
+
+    .rcb_right_menu{
+      margin-left: 10px !important;
+    }
+
+    .rcl-login{
+      margin: 0 15px;
+    }
+
+    #recallbar .rcb_icon .rcb_hiden{
+      font-size: 11px !important;
+    }
+
+    // .rcb_left{
+      // width: 100%;
+      // justify-content: space-between;
+    // }
+
+    #rcl-office{
+      .cab_lt_line .user-shortinfo{
+        bottom: 100px;
+      }
+      .cab_lt_title{
+        text-align: left;
+      }
+      .cab_lt_line .lk-avatar{
+        position: static;
+      }
+      .pw_lk_container .users .userlist{
+        grid-template-columns: repeat(3, 1fr);
+
+        .avatar{
+          width: auto;
+          height: auto;
+
+        }
+      }
+
+      .user-menu{
+        flex-wrap: wrap;
+      }
+
+      .cab_bttn_lite{
+        display: block;
+        text-align: left;
+        margin-top: 20px;
+      }
+    }
+
+    #recallbar .pureweb_languages{
+      display: none;
+    }
+
+    // Hero
+    .hero{
+      margin-top: 13px;
+    }
+
+    // Services
+    .services {
+      .services__wrap .item:nth-child(even)::after{
+        display: none;
+      }
+      .services__wrap .item:nth-child(odd)::after{
+        right: 0;
+      }
+    }
+
+    // Order site
+    .order-site{
+      padding: 20px 10px 20px 10px;
+      .form__btn{
+        width: 100%;
+      }
+      .countdown-box{
+        margin-top: 20px;
+      }
+    }
     .hero .offer__title_main span{
        display: none !important;
     }
 
-    #blog .accordion ul li{
-        padding: 22px 25px;
-        margin-bottom: 25px;
+    // Blog
+    #blog {
+      .accordion ul li{
+          padding: 22px 25px;
+          margin-bottom: 25px;
+        a{
+            font-size: 16px;
+        }
+        p{
+            font-size: 11px;
+        }
+      }
     }
 
-    #blog .accordion ul li a{
-        font-size: 16px;
-    }
-
-    #blog .accordion ul li p{
-        font-size: 11px;
-    }
-
+    // Single Page (article)
     .page-template-template-portfolio .portfolio .section-tab-navigation li {
         padding: 0 5px 11px 5px
     }
 
-    // Profile
-    .container{
+    .single-page{
+      padding-top: 7px !important;
+    }
+
+    .single-page .single-page__cover{
+      min-height: 300px;
+    }
+
+    .single-page .single-page__article{
+      padding: 5px;
+      padding-bottom: 5px !important;
+    }
+
+    .single-page .single-page__article{
+      img,img.article__main-image{
+        width: calc(100% + 10px);
+        max-width: initial;
+        margin-left: -5px;
+      }
+    }
+    .article__main-image{
+      margin-top: -5px;
+    }
+
+    .single-page__article{
+      #block_author-rcl h3.user-name{
+        margin-left: 65px;
+      }
+      .userlist.rows-list .user-content-rcl::before{
+        height: 150px;
+      }
+    }
+
+    #respond{
+      margin-bottom: 0;
+    }
+
+    #block_author-rcl{
+      margin-bottom: 0px;
+      padding: 5px;
+    }
+
+    #block_author-rcl .userlist.rows-list .user-single .filter-data{
+      margin: 0 5px 5px 0;
+    }
+
+    // Sidebar
+    .page-sidebar{
+      margin-top: 0;
+    }
+
+    .page-sidebar__box{
       padding-left: 5px;
       padding-right: 5px;
+      padding-top: 0;
+      margin-bottom: 0;
     }
+
+    .sidebar__title{
+      margin-bottom: 0;
+    }
+
+    // Chat
+    #rcl-office{
+      .rcl-chat{
+        .chat-messages .chat-message{
+          overflow: visible;
+        }
+        .message-wrapper{
+          max-width: 80%;
+        }
+      }
+    }
+
+    // Profile
     #rcl-office .recall_content_block{
       padding: 10px 5px;
+    }
+    .userlist.rows-list .userlist_cntr{
+      position: static;
+    }
+    .userlist.rows-list .thumb-user{
+      width: 70px;
+    }
+    #tab-chat{
+      padding: 0 20px !important
+    }
+    .view-user-info__item{
+      grid-template-columns: 1fr 1fr;
+    }
+
+    // Components
+    .order-site #countdown{
+      font-size: 30px;
     }
 }

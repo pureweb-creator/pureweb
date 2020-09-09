@@ -43,7 +43,7 @@ while(have_posts()){
 					while ($blog_post_output->have_posts()) {
 						$blog_post_output->the_post(); ?>
 
-						<a href="<?php echo esc_url(get_permalink()); ?>" class="d-flex blog-posts__item <?php echo get_field('size'); ?>">
+						<a href="<?php echo esc_url(get_permalink()); ?>" class="d-flex blog-posts__item <?php if(get_field('size')): echo get_field('size'); else: echo get_post_meta(get_the_ID(), 'pureweb-post-size')[0]; endif; ?>">
 							<?php
 							if (get_the_post_thumbnail(get_the_ID(), "full", true)){ ?>
 								<img src="<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), "full", true)); ?>" class="post__thumbnail" alt="post thumbnail">

@@ -1,10 +1,73 @@
+$main_color: #1876f2;
+$shadow: 0px 0px 2px rgba(0,0,0,0.12), 0px 2px 2px rgba(0,0,0,0.24);
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+.search.mobile-search{
+  display: none;
+}
+
+.rcli{
+  font-family: "Font Awesome 5 Pro";
+}
+
+.desktop-search{
+  input{
+    background: rgba(0,0,0,0.3);
+    color: rgba(255, 255, 255, .54);
+    height: 28px;
+    border-radius: 100px !important;
+  }
+  ::-webkit-input-placeholder{
+    color: rgba(255, 255, 255, .54);
+  }
+  .fa-search{
+    color: rgba(255, 255, 255, .54);
+  }
+}
+
+.form-search{
+  display: flex;
+  align-items: center;
+  max-width: 500px;
+  width: 30%;
+  position: relative;
+
+  .mobile-logo{
+    display: none;
+  }
+
+  input{
+    border: none;
+    width: 100%;
+    padding: 5px 10px 5px 30px;
+    border-radius: 2px;
+  }
+  button{
+    position: absolute;
+    background: transparent;
+    left: 5px;
+    top: 50%;
+    border: none;
+    cursor: pointer;
+    transform: translateY(-50%);
+  }
+}
+
 #recallbar{
-  background: #42046c;
+  height: 42px;
+  background: $main_color;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  & *:not(.rcb_nmbr) {
+    min-height: 100%;
+  }
 
   // Left menu
+  .rcb_left{
+    align-items: center;
+    display: flex;
+  }
   .pureweb_profile-random-phrase{
     color: rgba(255,255,255,1);
     font-style: italic;
@@ -23,6 +86,11 @@
     position: absolute;
     right: 0;
     font-size: 9px;
+  }
+
+  .rcb_right{
+    display: flex;
+    align-items: center;
   }
 
   .rcb_right_menu{
@@ -49,45 +117,41 @@
     margin-right: 5px;
   }
   .rcb_right_menu:hover{
-    border: none
+    border-сolor: transparent;
   }
 
   // Recallbar right
   .current-lang{
     background: rgba(0, 0, 0, 0.3);
   }
+  .lang-item a{
+    display: flex;
+    align-items: center;
+  }
 }
 
+#rcl-chat-noread-box{
+  .rcl-noread-users{
+    background: transparent;
+  }
+  .messages-icon,.more-contacts{
+    display: none;
+  }
+  .rcl-chat-user img{
+    border-radius: 100px
+  }
+}
 
 #rcl-office{
-  margin-top: 28px;
+  margin-top: 10px;
   padding-bottom: 50px;
 
-  .cab_lt_sidebar .recall-button:hover .rcli,
-  .cab_lt_sidebar .recall-button:hover .rcli, .cab_lt_sidebar .recall-button:hover span{
-    background: transparent !important;
-  }
-
-  .cab_lt_sidebar .recall-button:hover{
-    background: darken(rgb(36, 0, 181),10);
+  .fa-refresh{
+    padding: .5em .7em;
   }
 
   .cab_lt_title{
     text-align: center;
-  }
-
-  .cab_lt_menu{
-    font-size: 14px;
-    text-align: center;
-    height: 35px;
-    display: flex !important;
-    justify-content: space-around;
-    align-items: center;
-    padding: 0 7px;
-  }
-
-  .rcl-action{
-    margin: 0;
   }
 
   .cab_lt_line{
@@ -96,6 +160,24 @@
     align-items: center;
     padding: 10px 0;
     justify-content: center;
+    height: 100%;
+    background: linear-gradient(to top, #F2F4F4 10%, transparent);
+
+    margin: 0;
+    top: 0;
+    position: absolute;
+    bottom: 0;
+
+    .container{
+      width: 892px;
+      position: absolute;
+    }
+    .user-shortinfo{
+      bottom: 70px;
+    }
+    .user-menu{
+      bottom: 0;
+    }
 
     .cab_lt_wrapper{
       max-width: 760px;
@@ -104,66 +186,175 @@
       align-items: center;
       justify-content: space-between;
     }
+
+    .lk-avatar{
+      position: absolute;
+      bottom: 50px;
+      width: 150px;
+      border-radius: 100px;
+      overflow: hidden;
+      height: 150px;
+      border: 5px solid #fff;
+      box-sizing: content-box;
+    }
   }
 
-  .cab_lt_sidebar{
-    margin-right: 20px;
+  .cab_lt_menu{
+    font-size: 14px;
+    text-align: center;
+    height: 35px;
+    justify-content: space-around;
+    align-items: center;
+    background: $main_color !important;
+    border-radius: 8px;
+    margin: 10px 0 !important;
+    color: #fff !important;
+    padding: 0 7px;
+    i{
+      margin-left: 5px;
+    }
+  }
 
-    .recall-button{
-      .rcli{
-        border: 0;
-        background: transparent
-      }
-      &:hover{
-        .rcli{
-          background: rgba(0,0,0,0.2)
-        }
-      }
+  .users{
+    background: #fff;
+    padding: 20px 16px;
+    border-radius: 8px;
+
+    .userlist .user-single{
+      background: transparent;
+      box-shadow: none;
     }
 
-    #rcl-avatar img{
-      border-radius: 7px;
-    }
-
-    .cab_bttn{
-      margin-top: 15px;
-      overflow: hidden;
-    }
-
-    #lk-menu, .cab_bttn{
-      border-radius: 7px;
-      a{
+    .userlist .user-avatar{
+      display: block;
+      img{
+        transition: all .1s ease;
         margin: 0;
       }
+      img:hover{
+        filter: contrast(.5);
+      }
+    }
+  }
 
-      span{
-        &::after{
-          display: none;
+  #lk-menu, .user-menu{
+    border-top: 1px solid silver;
+    .recall-button, .rcl-bttn{
+      margin: 0;
+      background: transparent;
+      color: #65676b;
+      font-size: 13px;
+      border-top: 3px solid transparent;
+      padding: 10px 10px;
+      &:hover, &.active{
+        color: #1876f2;
+        border-top: 3px solid #1876f2;
+      }
+    }
+  }
+  .user-menu .rcl-bttn{
+    padding: 5px;
+  }
+  .rcl-data-filters a {
+    border-radius: 5px;
+  }
+  #lk-menu{
+    border: none;
+  }
+
+  .rcl-action{
+    margin: 0;
+  }
+
+  #rcl-avatar{
+    transition: all .3s ease;
+    .icon-avatar-delete, .icon-user-info{
+      display: none;
+    }
+    &:hover{
+      .icon-avatar-upload{
+        a{
+          transform: translateY(0);
+          opacity: .7;
         }
       }
+    }
+  }
+
+  #rcl-avatar .icon-avatar-upload{
+    width: 100%;
+    display: block;
+    text-align: center;
+
+    a{
+      width: 100%;
+      transition: all .3s ease;
+      transform: translateY(100px);
     }
   }
 
   &.wprecallblock #lk-conteyner{
-    height: 300px;
+    height: 450px;
     background-attachment: fixed;
   }
 
   .rcl-content{
-    box-shadow: 0px 0px 4px rgba(0,0,0,0.12), 0px 4px 4px rgba(0,0,0,0.24);
+    box-shadow:none;
+    #tab-pureweb_news_feed{
+      background: transparent;
+    }
   }
 
   .pw_lk_container{
-    margin-top: -100px;
-    display: flex;
-    justify-content: center;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    align-items: flex-start;
+    grid-gap: 20px;
+    width: 892px;
 
+    #lk-menu{
+      width: 100%;
+    }
+
+    .users .userlist{
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 10px;
+      .user-avatar{
+        font-family: Segoe UI;
+        color: #050505;
+        font-size: 13px;
+        font-weight: 700;
+      }
+      .avatar{
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+    }
   }
 
   .recall_content_block{
     background: #fff;
     border-radius: 7px;
     padding: 10px 20px;
+  }
+
+  #subtab-subscriptions h3,#subtab-followers h3{margin: 0;}
+  #subtab-subscriptions h3 + h3,
+  #subtab-followers h3 + h3{
+    font-size: 14px;
+    opacity: .7;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  .rcl-subtab-button{
+    border-radius: 6px;
+    padding: 2px 3px;
   }
 
   #delete_acc, #cpsubmit{
@@ -176,6 +367,227 @@
   }
 }
 
+// Mobile menu
+.cab_lt_mobile{
+  &#lk-menu.st_menu_moved{
+    height: 100%;
+    position: fixed;
+    top: 0 !important;
+  }
+
+  &#lk-menu .recall-button{
+    background: transparent;
+    color: #000;
+    opacity: .87;
+    .rcli{
+      background: transparent;
+      border: none;
+    }
+  }
+
+  .recall-button.active{
+    color: #4285F4 !important;
+    i{
+      color: #4285F4
+    }
+  }
+}
+
+// Rcl Chat
+#rcl-office .rcl-chat, .rcl-mini-chat{
+  &.rcl-mini-chat{
+    border-radius: 8px;
+    box-shadow: 0 12px 28px 0 #00000033,0 2px 4px 0 #0000001a;
+    .chat-messages{
+      background: #fff;
+    }
+    .rcl-chat{
+      border: none;
+    }
+    .rcl-chat-panel{
+      display: flex;
+      justify-content: space-between;
+      background: transparent;
+      box-shadow: 0 2px 9px 0 #0000001a;
+      position: relative;
+      z-index: 9;
+      padding: 10px;
+      a{
+        color: $main_color
+      }
+    }
+  }
+  .chat-users-box{
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    right: 30px;
+    background: transparent
+  }
+  .chat-meta{
+    position: absolute;
+    right: 0;
+    padding: 0;
+    top: -5px;
+  }
+  .important-shift{
+    background: transparent !important;
+    margin: 0 !important;
+  }
+  .chat-messages{
+    background: url('https://mir-s3-cdn-cf.behance.net/project_modules/disp/2d9dd173426833.5c08f5634ff45.png') repeat-y center center / cover;
+    padding-bottom: 0;
+    margin-left: -25px;
+    margin-right: -25px;
+    border: none
+  }
+  &.rcl-mini-chat .chat-messages{
+    margin: 0;
+  }
+  .chat-form{
+    margin-left: -25px;
+    margin-right: -25px;
+  }
+  &.rcl-mini-chat .chat-form{
+    margin: 0;
+  }
+  .chat-form textarea, .chat-form textarea{
+    border: 1px solid #f0f0f0;
+    background: #f0f2f5;
+    border-radius: 15px;
+  }
+  .message-box::before{
+    display: none;
+  }
+
+  .words-counter{
+    margin-left: 15px;
+  }
+
+  .chat-submit{
+    margin-right: 15px;
+  }
+
+  .message-wrapper{
+    padding-left: 10px;
+    display: inline-block;
+    max-width: 75%;
+  }
+
+  .chat-messages .chat-message .message-box{
+    border-radius: 15px;
+    color: #fff;
+    font-size: 13px;
+    padding: 5px 10px 5px 10px;
+    background: $main_color;
+    p{
+      line-height: 1.4em;
+    }
+  }
+
+  .avatar{
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+  }
+
+  .chat-message .author-name{
+    display: none;
+  }
+
+  .chat-messages .chat-message{
+    margin: 0;
+  }
+
+  #lk-content{
+    margin: 0;
+  }
+}
+.rcl-noread-users a.active-chat::before{
+  display: none;
+}
+
+// Userlist
+.page-template-template-my-account .rcl-userlist{
+  .userlist.rows-list .user-single{
+    box-shadow: none;
+    background: transparent;
+    padding: 0;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #e7e8ec;
+    &:last-child{
+      border-top: none;
+    }
+  }
+  .userlist.rows-list .userlist_top{
+    background: transparent;
+    width: 100%;
+    margin-bottom: 0;
+    padding: 0;
+    padding-left: 90px !important;
+    h3{
+      margin-top: 10px !important;
+      margin-bottom: 0 !important;
+      a{
+        color: $main_color;
+        font-size: 15px;
+        text-transform: capitalize;
+        font-family: Roboto;
+        font-weight: 600;
+        &:hover{
+          text-decoration: underline !important;
+        }
+      }
+    }
+  }
+  .userlist.rows-list .userlist_cntr{
+    display: flex;
+    min-height: 50px;
+  }
+  .userlist.rows-list .thumb-user{
+    background: transparent;
+    float: none;
+  }
+  .userlist.rows-list .user-content-rcl::before{
+    display: none;
+  }
+  .userlist.rows-list .user-content-rcl .ballun-status{
+    margin-left: 80px;
+  }
+  .online .rcli.fa-circle{
+    animation: none;
+  }
+  .thumb-user a img{
+    border-radius: 100px;
+  }
+  .rows-list .status-user-rcl{
+    border: 0;
+    padding: 0;
+    font-style: italic;
+    opacity: .5;
+    font-size: 13px;
+  }
+  .rows-list .status-user-rcl::before{
+    display: none;
+  }
+  .user-content-rcl{
+    width: 100%;
+  }
+  .filter-data, .rating-plus{
+    display: none !important;
+  }
+}
+
+// Form
+#login-form-rcl, #register-form-rcl{
+  .show-pass, .hide-pass{
+    right: 25px;
+    cursor: pointer;
+    left: unset;
+  }
+}
 
 #rcl-tabs{
   max-width: 550px;
@@ -193,12 +605,19 @@
     font-family: Open Sans, sans-serif;
   }
 
+  h2{
+    color: $main_color;
+  }
+
   &__item_status{
     font-style: italic;
     padding-right: 20px;
     display: block;
-    margin-bottom: 20px;
-    color: rgba(0, 0, 0, 1);
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+    color: #000;
+    border-bottom: 1px solid #e7e8ec;
+    opacity: .5;
     br{
       display: none;
     }
@@ -208,17 +627,237 @@
     padding: 10px 20px;
     width: calc(100% + 40px);
     margin-left: -20px;
-    &:nth-child(odd){
-      background: rgba(0,0,0,0.1)
-    }
-    &:last-child{
-      border-bottom: 0;
-    }
+    display: grid;
+    grid-template-columns: 1fr 3fr;
   }
 
   &__item__title{
     display: block;
     margin-right: 10px;
     color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+// Feed
+#rcl-feed .feed-box{
+  font-family: Roboto;
+  background: #fff !important;
+  margin: 0;
+  box-shadow: $shadow;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  padding: 15px 20px;
+  .feed-header{
+    background: transparent !important;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  .feed-content{
+    padding: 0;
+  }
+  .avatar{
+    border-radius: 100px !important;
+  }
+  .feed-author-name{
+    a{
+      color: $main_color;
+      font-family: Roboto;
+      text-transform: capitalize;
+    }
+  }
+  .feed-date{
+    opacity: .5;
+    font-size: 13px;
+  }
+  .feed-title{
+    display: none;
+  }
+  .feed-content{
+    img{
+      width: calc(100% + 60px);
+      max-width: none;
+      margin-left: -30px;
+      margin-bottom: 10px;
+    }
+    p{
+      line-height: 17px !important;
+      font-family: Open Sans;
+      font-weight: 400;
+    }
+  }
+}
+
+// Contacts
+#rcl-office .rcl-chat-contacts{
+  .noread-message{
+    background: lighten($main_color, 40);
+    width: calc(100% + 40px) !important;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-left: -20px !important;
+  }
+  .avatar{
+    border-radius: 100px;
+  }
+  .chat-contact{
+    border: none;
+    border-bottom: 1px solid #ddd;
+    margin: 0;
+  }
+}
+
+
+// Author
+#block_author-rcl{
+  margin-left: 0;
+  margin-right: 0;
+  box-shadow: none;
+  padding: 20px;
+  background: #fff;
+  // padding-bottom: 0;
+  box-shadow: $shadow;
+  border-radius: 7px;
+  h3{
+    text-transform: capitalize;
+  }
+  .userlist.rows-list .userlist_top{
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .userlist.rows-list .userlist_top, .userlist.rows-list .thumb-user{
+    background: transparent
+  }
+  .avatar{
+    border-radius: 100px;
+  }
+  .rating-rcl .rating-plus{
+    background: transparent;
+  }
+  .online .rcli.fa-circle{
+    animation: none;
+  }
+
+  .status-user-rcl{
+    &::before{
+      display: none;
+    }
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-style: italic;
+    color: #000;
+    opacity: .54;
+  }
+  .userlist.rows-list .user-single .filter-data{
+    background: transparent;
+    padding: 7px 14px;
+    border-radius: 100px;
+    box-shadow: none;
+  }
+}
+
+// Edit Profile
+#your-profile .rcl-table__zebra .rcl-table__row:not(.rcl-table__row-header){
+  width: calc(100% + 40px);
+  margin-left: -20px;
+  padding: 0 20px;
+  background: transparent !important;
+  flex-direction: column;
+
+  .rcl-field-title{
+    font-weight: 700;
+  }
+
+  input, textarea, select{
+    padding: 10px 15px !important;
+    border-radius: 5px !important;
+
+    &:focus{
+      border-color: $main_color !important
+    }
+  }
+}
+
+.rcl-subtab-menu{
+  background: transparent;
+}
+
+// Published posts
+#tab-publics{
+  .rcl-table__border{
+    border: none;
+  }
+  .rcl-table__row,
+  .rcl-subtab-menu{
+    background: transparent;
+  }
+  .rcl-table__cell{
+    border: none !important
+  }
+  .rcl-table__cell-w-65{
+    flex-basis: 64%;
+  }
+}
+
+// Public Form
+#tab-postform, #tab-pureweb_add_portfolio{
+  // Start Reset
+  .rcl-form-field,
+  .mass-upload-box,
+  .rcl-checkbox-box label,
+  #rcl-thumbnail-post,
+  .maxlength,
+  .ms-trigger,
+  .rcl-public-box .rcl-tags-list .ms-ctn,
+  .rcl-field-input .block-label{
+    background: transparent;
+    box-shadow: none;
+    border: none;
+  }
+  // End Reset
+  .rcl-checkbox-box{
+    padding: 0;
+    label{
+      margin-left: 0;
+      margin-right: 0;
+      &:before{
+        border-radius: 5px;
+      }
+    }
+  }
+  .recall-button{
+    border-radius: 5px;
+  }
+  .public-form-button{
+    margin-right: 0;
+    margin-left: 10px;
+  }
+  .maxlength{
+    opacity: .5;
+    font-size: 9px;
+    height: auto;
+    top: unset;
+    bottom: 5px;
+    color: red;
+  }
+  hr{
+    display: none;
+  }
+  .mass-upload-box .mass-upload-area{
+    background-color: lighten($main_color, 35);
+    margin-bottom: 10px;
+  }
+  input,textarea,select{
+    padding: 10px 15px !important;
+    border-radius: 5px !important;
+    background: transparent;
+
+    &:focus{
+      border-color: $main_color !important
+    }
+  }
+  .rcl-public-box .rcl-form-field > label{
+    font-size: 14px;
+    margin-bottom: 8px;
   }
 }

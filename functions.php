@@ -129,6 +129,8 @@ function pureweb_scripts() {
 	if(is_front_page() || is_page_template('template-home.php')){
   	wp_enqueue_style( 'pureweb-animate', get_template_directory_uri() . '/layouts/animate.min.css' );
 	}
+	wp_enqueue_style( 'pureweb-remodal', get_template_directory_uri() . '/layouts/remodal.css' );
+	wp_enqueue_style( 'pureweb-remodal-default-theme', get_template_directory_uri() . '/layouts/remodal-default-theme.css' );
   wp_enqueue_style( 'pureweb-main', get_template_directory_uri() . '/layouts/main.min.css' );
 
   wp_enqueue_script( 'jquery');
@@ -139,7 +141,9 @@ function pureweb_scripts() {
 		wp_enqueue_script( 'pureweb-parallax', 'https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js', array(), '1.0', true );
 	}
 
+
 	wp_enqueue_script( 'pureweb-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '1.0', true );
+	wp_enqueue_script( 'pureweb-remodal', get_template_directory_uri() . '/js/libs/remodal.min.js', array(), '1.0', true );
 	wp_enqueue_script( 'pureweb-main', get_template_directory_uri() . '/js/main.min.js', array(), '1.0', true );
 
 	wp_enqueue_script( 'pureweb-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '1.0', true );
@@ -229,7 +233,6 @@ function pureweb_portfolio_post_type_init() {
         'name'                  => _x( 'Portfolio', 'Post type general name', 'textdomain' ),
         'singular_name'         => _x( 'Portfolio', 'Post type singular name', 'textdomain' ),
     );
-
     $args = array(
         'labels'             => $labels,
         'public'             => true,
@@ -243,7 +246,7 @@ function pureweb_portfolio_post_type_init() {
         'hierarchical'       => false,
         'menu_position'      => null,
         'taxonomies'         => array('category', 'post_tag'),
-        'supports'           => array( 'title', 'thumbnail', 'comments'),
+        'supports'           => array( 'title', 'thumbnail', 'comments', 'author', 'editor'),
         'menu_icon'          => 'dashicons-portfolio',
     );
 
@@ -493,6 +496,8 @@ function pw_comment( $comment, $args, $depth ) {
 // Polylang
 pll_register_string('pureweb', 'Блог');
 pll_register_string('pureweb', 'Читать');
+pll_register_string('pureweb', 'Вот, что удалось найти по запросу ');
+pll_register_string('pureweb', 'Извините, ничего не удалось найти :( ');
 
 #portfolio
 pll_register_string('pureweb', 'Срок выполнения');
@@ -502,6 +507,8 @@ pll_register_string('pureweb', 'Сложность');
 pll_register_string('pureweb', 'Подробнее');
 pll_register_string('pureweb', 'Ссылка на работу в интернете: ');
 pll_register_string('pureweb', 'Похожие работы');
+pll_register_string('pureweb', 'Услуга');
+pll_register_string('pureweb', 'Портфолио');
 
 #sidebar
 pll_register_string('pureweb', 'Категории');
@@ -511,3 +518,19 @@ pll_register_string('pureweb', 'Теги');
 #posts
 pll_register_string('pureweb', 'Похожие статьи');
 pll_register_string('pureweb', 'Kомментарии');
+
+#profile
+pll_register_string('pureweb', 'Новые сообщения');
+pll_register_string('pureweb', 'Все пользователи');
+pll_register_string('pureweb', 'Карточка профиля');
+
+#discount
+pll_register_string("pureweb", "Скидки до -30%");
+pll_register_string("pureweb", "Успейте заказать сайт до 31 Сентября!");
+pll_register_string("pureweb", "Забронируйте разработку сайта до 31.09 и получите горячую скидку -30%!");
+pll_register_string("pureweb", "Заказать сайт!");
+
+#discount modal
+pll_register_string("pureweb", "Заказать сайт <br> со скидкой В -30%");
+pll_register_string("pureweb", "Измените свой бизнесс в лучшую сторону уже сейчас");
+pll_register_string("pureweb", "До конца акции осталось");

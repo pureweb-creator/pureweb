@@ -3,7 +3,7 @@ if(function_exists('wp_recall')){
   /**
    * Show random phrase in the recallbar (like a Hello, Dolly plugin)
    */
-  if(is_user_logged_in()){
+
     function pureweb_get_random_phrase(){
 
       if(pll_current_language('slug') == 'ru'){
@@ -12,7 +12,7 @@ if(function_exists('wp_recall')){
         Целься в луну, даже если промахнешься - останешься среди звезд!
         В поисках разума не потеряй сердце!
         Кто ищет, тот найдет
-        Находишь всега то, что не искал
+        Находишь всегда то, что не искал
         Не все еще потеряно
         Не доходите до крайности в поисках золотой середины
         Потеряешь - не жалей, найдешь - не радуйся";
@@ -34,12 +34,12 @@ if(function_exists('wp_recall')){
 
       // Choose random line of text
       $phrase = wptexturize( $phrase[ mt_rand( 0, count( $phrase ) - 1 ) ] );
-
-      echo '<span class="pureweb_profile-random-phrase">'.$phrase.'</span>';
+      return $phrase;
+      // echo '<span class="pureweb_profile-random-phrase">'.$phrase.'</span>';
 
     }
     add_action('rcl_bar_left_icons', 'pureweb_get_random_phrase');
-  }
+
 
   /**
    * New notification icon with counter and link
@@ -49,9 +49,9 @@ if(function_exists('wp_recall')){
       global $user_ID;
       rcl_bar_add_icon('pureweb_rcl-custom-notification',
       array(
-        'icon'    => 'fa-envelope',
+        'icon'    => 'fa-bell',
         'url'     => rcl_format_url(get_author_posts_url($user_ID,'chat')) . 'tab=chat',
-        'label'   => __('Новые сообщения'),
+        'label'   => pll__('Новые сообщения'),
         'counter' => rcl_chat_noread_messages_amount( get_current_user_id() )
       ));
 
@@ -59,7 +59,7 @@ if(function_exists('wp_recall')){
       array(
         'icon'    => 'fa-users',
         'url'     => rcl_format_url(get_author_posts_url($user_ID,'userlist')) . 'tab=userlist',
-        'label'   => __('Все пользователи')
+        'label'   => pll__('Все пользователи')
       ));
     }
     add_action('rcl_bar_setup', 'pureweb_rcl_bar_add_icon', 10);
@@ -77,7 +77,7 @@ if(function_exists('wp_recall')){
      rcl_bar_add_menu_item('my-profile-link', array(
        'url'  => rcl_format_url(get_author_posts_url($userID, 'view')) . 'tab=view',
        'icon' => 'fa-id-card-o',
-       'label'=> __('Profile card')
+       'label'=> pll__('Карточка профиля')
      ));
    }
    add_action('rcl_bar_setup', 'pureweb_rcl_bar_add_menu_item', 10);
@@ -90,4 +90,51 @@ if(function_exists('wp_recall')){
         return $icons;
     }
     add_action('rcl_bar_menu', 'pureweb_change_rcl_bar_menu', 10);
+
+    /**
+     * Custom publication form fields
+     */
+     add_filter('rcl_default_public_form_fields','pureweb_add_default_field_public_form',10,2);
+     function pureweb_add_default_field_public_form($fields,$post_type){
+      $fields[] = array(
+          'type'   => 'radio',
+          'slug'   => 'pureweb-post-size',
+          'title'  => 'Размер поста',
+          'notice' => 'Укажите одно из значений нашего поля',
+          'values' => array(
+              'big',
+              'middle',
+              'small'
+          )
+
+      );
+      $fields[] = array(
+          'type'   => 'text',
+          'slug'   => 'pureweb-case-deadline',
+          'title'  => 'Срок выполнения работы',
+          'notice' => 'Напишите значение в свободной форме',
+      );
+
+      $fields[] = array(
+          'type'   => 'text',
+          'slug'   => 'pureweb-case-costs',
+          'title'  => 'Стоимость работы',
+          'notice' => 'Напишите значение в свободной форме',
+      );
+
+      $fields[] = array(
+          'type'   => 'number',
+          'slug'   => 'pureweb-case-rating',
+          'title'  => 'Сложность работы',
+          'notice' => 'Количество звезд. От 1 до 5',
+      );
+
+      $fields[] = array(
+          'type'   => 'url',
+          'slug'   => 'pureweb-case-link',
+          'title'  => 'Ссылка на работу в интернете',
+          'notice' => '',
+      );
+      return $fields;
+    }
 }

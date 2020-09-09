@@ -25,10 +25,41 @@ global $pureweb_redux;
         </div>
     </div>
 </footer>
+<div class="discount">
+  <div class="discount__top-line d-flex">
+    <i class="fal fa-times-circle"></i>
+    <span class="discount__amout"><?php echo pll__("Скидки до -30%"); ?></span>
+  </div>
+  <h4 class="discount__title"><?php echo pll__("Успейте заказать сайт до 31 Сентября!"); ?>"</h4>
+  <p class="discount__text"><?php echo pll__("Забронируйте разработку сайта до 31.09 и получите горячую скидку -30%!"); ?></p>
+  <button type="button" name="button" class="discount__btn"><a href="#modal"><?php echo pll__("Заказать сайт!"); ?></a> </button>
+</div>
+
+
+<div class="remodal order-site" data-remodal-id="modal">
+  <div class="mask"></div>
+  <button data-remodal-action="close" class="remodal-close"> <i class="fal fa-times"></i> </button>
+  <h3 class="order-site__title"><?php echo pll__("Заказать сайт <br> со скидкой В -30%"); ?></h3>
+  <p class="order-site__caption">
+    <?php echo pll__("Измените свой бизнесс в лучшую сторону уже сейчас"); ?>
+  </p>
+  <?php
+  // Comment form
+  echo strip_tags(do_shortcode('[contact-form-7 id="576" title="Discount Form"]'), '<form>, <input>, <label>, <i>, <div>');
+  ?>
+  <div class="countdown-box">
+    <p><?php echo pll__("До конца акции осталось"); ?></p>
+    <div id="countdown"></div>
+  </div>
+</div>
 <?php wp_footer(); ?>
+<?php if(!is_page_template('template-my-account.php')): ?>
 <script type="text/javascript" src="https://spikmi.com/Widget?Id=3635"></script>
+<?php endif; ?>
 <?php if(is_front_page()): ?>
 <script>
+    jQuery("#phone").mask("+380 (99) 999 99 99");
+    new WOW().init();
     jQuery(document).ready(function () {
        // Parallax
         var scene = document.getElementById('first-scene');

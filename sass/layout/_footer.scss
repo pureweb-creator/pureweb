@@ -9,3 +9,170 @@
 	    margin-right: 26px
 	}
 }
+
+.discount{
+  width: 350px;
+  position: fixed;
+  bottom: 0;
+  left: 70%;
+  transform: translateX(-70%) translateY(100%);
+  background: linear-gradient(45deg, rgba(117,18,66,1) 0%, rgba(98,21,138,1) 94%);
+  border-radius: 20px 20px 0 0;
+  padding: 20px;
+  z-index: 4;
+  transition: all 1s ease;
+  color: #fff;
+
+  &.active{
+    transform: translateX(-70%) translateY(0);
+  }
+
+  &__top-line{
+    justify-content: space-between;
+  }
+  i.fa-times-circle{
+    font-size: 20px;
+    cursor: pointer;
+  }
+  h4{
+    color: #fff;
+    margin-top: 3px;
+    margin-bottom: 10px;
+    line-height: 1.4em;
+    font-size: 13px;
+  }
+
+  &__amout{
+    opacity: .7;
+    display: block;
+    text-align: right;
+    margin-bottom: 10px;
+    text-decoration: underline;
+    font-size: 13px;
+  }
+
+  &__text{
+    opacity: .7;
+    line-height: 1.5em;
+    width: 95%;
+    margin-bottom: 10px;
+  }
+
+  &__btn{
+    background: transparent;
+    padding: 5px 10px;
+    border-radius: 50px;
+    border: 1px solid #fff;
+    color: #fff;
+    cursor: pointer;
+    transition: all .3s ease;
+    &:hover{
+      background: #fff;
+      a{
+        color: rgba(117,18,66,1)
+      }
+    }
+    & > a {
+      color: #fff;
+    }
+  }
+}
+
+// Modal
+.order-site{
+  background: url('../img/bg.jpg') no-repeat center top / cover;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  padding: 77px 84px 77px 96px;
+  max-width: 636px;
+  width: 100%;
+  color: #fff;
+  .mask{
+    z-index: -1;
+    width: 100%;
+    left: 0;
+    top: 0;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.54);
+  }
+  .remodal-close{
+    left: unset;
+    right: 0;
+  }
+  &__title{
+    color: #fff;
+    font-size: 24px;
+    line-height: 32px;
+  }
+  &__caption{
+    margin: 15px 0 44px 0;
+  }
+
+  .form{
+    width: 455px;
+    margin: 0 auto
+  }
+
+  .input-group{
+    position: relative;
+    font-size: 16px;
+    margin-bottom: 25px;
+
+    &__label{
+      position: absolute;
+      left: 13px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #000;
+      opacity: .5;
+    }
+
+    &__input{
+      border-radius: 5px;
+      padding: 17px 0 17px 35px;
+      width: 100%;
+      border: 0;
+    }
+  }
+
+  .form__btn{
+    background: #21DA97;
+    border-radius: 5px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: Segoe UI;
+    height: 51px;
+    padding: 15px;
+    border: none;
+    transition: all .3s ease;
+    cursor: pointer;
+    display: table;
+    &:hover{
+      background: darken(#21DA97, 10)
+    }
+  }
+
+  .countdown-box{
+    margin-top: 73px;
+
+    p{
+      margin-bottom: 19px;
+    }
+  }
+
+  #countdown{
+    text-align: center;
+    font-size: 48px;
+    font-family: Segoe UI;
+    font-weight: 600;
+    line-height: 64px;
+  }
+}
+
+// Spikmi
+.a18622da_e04c_41fc_b6ea_82a9b5417c40_6bd79e10_5bb8_4d3b_a208_ccc01b469bf4_root{
+  z-index: 999 !important
+}

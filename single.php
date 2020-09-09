@@ -23,6 +23,8 @@ if (have_posts()){
 <section class="single-page">
 	<div class="single-page__cover" style="background: url(<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), "full", true)); ?>) no-repeat fixed center center / cover;">
 		<div class="cover__mask">
+		</div>
+		<div class="container">
 			<h2 class="section-titles cover__title">
 				<?php the_title(); ?>
 			</h2>

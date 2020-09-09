@@ -9,47 +9,45 @@
 
 get_header();
 ?>
-
-	<section id="primary" class="content-area">
-		<main id="main" class="site-main">
-
-		<?php if ( have_posts() ) : ?>
-
-			<header class="page-header">
-				<h1 class="page-title">
+<section id="portfolio" class="portfolio tabs">
+    <div class="container">
+        <div class="section-titles d-flex justify-content-between">
+            <span class="search-result-title" style="font-size: 18px">
+                <?php if(have_posts()): echo pll__("Вот, что удалось найти по запросу ") . '<span class="search-result-query" style="font-weight: 700">' . get_search_query() . '</span>'; endif; ?>
+            </span>
+        </div>
+        <div class="portfolio-wrap tabs__content animated fadeIn active">
+        	<!-- Main content -->
 					<?php
-					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'pureweb' ), '<span>' . get_search_query() . '</span>' );
-					?>
-				</h1>
-			</header><!-- .page-header -->
+						if(have_posts()):
+							while (have_posts()): the_post(); ?>
+								<div class="portfolio-item">
+										<img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), "full"); ?>" alt="work" class="portfolio-item__thumbnail post-<?php the_ID(); ?>">
+										<div class="mask">
+												<div class="mask__container d-flex justify-content-center">
+														<a href="<?php echo esc_url(get_permalink()); ?>" class="look_item">
+																<span><?php echo pll__("Подробнее"); ?></span>
+																<i class="fa fa-link"></i>
+														</a>
+												</div>
+										</div>
+								</div>
+							<?php
+								endwhile;
+							else:
+								echo pll__("Извините, ничего не удалось найти :(");
+							endif; ?>
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
-
-				/**
-				 * Run the loop for the search to output the results.
-				 * If you want to overload this in a child theme then include a file
-				 * called content-search.php and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', 'search' );
-
-			endwhile;
-
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
-
-		</main><!-- #main -->
-	</section><!-- #primary -->
-
+        	<div class="pagination">
+                <?php
+                echo paginate_links( array(
+                    'prev_text' => '&larr;',
+                    'next_text' => '&rarr;'
+                ) );
+            	?>
+            </div>
+        </div>
+    </div>
+</section>
 <?php
-get_sidebar();
 get_footer();

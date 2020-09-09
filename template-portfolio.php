@@ -38,8 +38,7 @@ global $pureweb_redux;
             $portfolio_args = array(
                 'paged'          => $paged ,
                 'post_type'      => 'portfolio',
-                'posts_per_page' => '10',
-                'order'          => 'DESC'
+                'posts_per_page' => '10'
             );
 
             $portfolio_query = new WP_Query($portfolio_args);

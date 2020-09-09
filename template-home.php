@@ -98,7 +98,7 @@ if(have_posts()){
             $portfolio_args = array(
                 'post_type'      => 'portfolio',
                 'posts_per_page' => '4',
-                'order'          => 'DESC'
+                // 'order'          => 'ASC'
                 // 'favourite'      => 'Yes'
             );
             $portfolio = new WP_Query($portfolio_args);
@@ -125,7 +125,11 @@ if(have_posts()){
         </div>
         <div class="order">
             <br><br>
-            <a href="<?php echo esc_url(get_page_link(481)); ?>" class="btn order-btn scrollto wow zoomIn"><?php the_field('portfolio_button_text'); ?></a>
+            <?php if(pll_current_language('slug') == 'ru'){ ?>
+              <a href="<?php echo esc_url(get_page_link(87)); ?>" class="btn order-btn scrollto wow zoomIn"><?php the_field('portfolio_button_text'); ?></a>
+            <?php } else if(pll_current_language('slug') == 'en'){ ?>
+              <a href="<?php echo esc_url(get_page_link(481)); ?>" class="btn order-btn scrollto wow zoomIn"><?php the_field('portfolio_button_text'); ?></a>
+            <?php } ?>
         </div>
     </div>
 </section>

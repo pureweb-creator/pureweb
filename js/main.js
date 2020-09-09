@@ -39,9 +39,6 @@ jQuery(document).ready(function () {
         e.stopPropagation();
     });
 
-    // Init wow effect
-    new WOW().init();
-
     // Smooth scroll
     jQuery('.scrollto > a').click( function(){ // ловим клик по ссылке с классом go_to
     var scroll_el = jQuery(this).attr('href'); // возьмем содержимое атрибута href, должен быть селектором, т.е. например начинаться с # или .
@@ -99,8 +96,6 @@ jQuery(document).ready(function () {
  		}
  	});
 
-	jQuery("#phone").mask("+380 (99) 999 99 99");
-
 	jQuery.fn.setCursorPosition = function(pos) {
 		if (jQuery(this).get(0).setSelectionRange) {
 			jQuery(this).get(0).setSelectionRange(pos, pos);
@@ -116,6 +111,80 @@ jQuery(document).ready(function () {
 	jQuery("#phone").click(function(){
 		jQuery(this).setCursorPosition(6);
 	});
+
+  // Show/Hide password
+  if(jQuery('.form-block-rcl__password')){
+    jQuery('#primary-pass-user, #secondary-pass-user').after("<i class='rcli fa-eye show-pass'></i><i class='rcli fa-eye-slash hide-pass'></i>");
+    var hidepass = jQuery('.hide-pass');
+    var showpass = jQuery('.show-pass');
+    hidepass.hide();
+    showpass.on('click', function(){
+      jQuery(this).parent().find('input').attr('type', 'text');
+      jQuery(this).hide();
+      jQuery(this).parent().find('.hide-pass').show();
+    });
+    hidepass.on('click', function(){
+      jQuery(this).parent().find('input').attr('type', 'password');
+      jQuery(this).hide();
+      jQuery(this).parent().find('.show-pass').show();
+    });
+  }
+
+  // discount
+  if(jQuery('.discount')){
+
+    // Ключ localStorage
+    var LS_KEY = 'modal_shown';
+
+    // Если модал еще не открыали
+    if (!sessionStorage.getItem(LS_KEY)) {
+      setTimeout(function() {
+        // Открываем модал
+        jQuery('.discount').addClass('active');
+      }, 3000);
+    }
+
+    jQuery('.discount .fa-times-circle').on('click', function(){
+      jQuery('.discount').removeClass('active');
+      // Сохраняем флаг в localStorage
+      sessionStorage.setItem(LS_KEY, '1');
+    });
+  }
+
+  //countdown
+  if(jQuery('.countdown')){
+    // Set the date we're counting down to
+    var countDownDate = new Date("Sep 31, 2020 23:59:59").getTime();
+
+    // Update the count down every 1 second
+    var x = setInterval(function() {
+      // Get today's date and time
+      var now = new Date().getTime();
+
+      // Find the distance between now and the count down date
+      var distance = countDownDate - now;
+
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Display the result in the element with id="demo"
+      document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+      + minutes + "m " + seconds + "s ";
+
+      // If the count down is finished, write some text
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("countdown").innerHTML = "EXPIRED";
+      }
+    }, 1000);
+  }
+
+  if(jQuery('.chat-form')){
+    jQuery('.chat-form textarea').attr('placeholder', 'Напишите сообщение')
+  }
 });
 
 //# sourceMappingURL=main.min.js.map

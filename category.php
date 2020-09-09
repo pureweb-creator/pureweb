@@ -7,45 +7,44 @@
  */
 
 get_header();
-global $pureweb_redux;
 ?>
 
 <section id="portfolio" class="portfolio tabs">
     <div class="container">
         <div class="section-titles d-flex justify-content-between">
             <h2 class="section-title">
-                <?php echo pll__('Портфолио'); ?>
+                <?php
+                if(have_posts()):
+                  the_post();
+                  $page_categories = get_the_category();
+                  // print_r($page_categories);
+                  foreach ($page_categories as $page_the_category) {
+                    echo $page_the_category->name;
+                  }
+                endif;
+                ?>
             </h2>
-            <?php
-            wp_nav_menu(array(
-                'theme_location' => 'work_categories_list',
-                'menu'           => '',
-                'container'      => '',
-                'menu_class'     => 'section-tab-navigation d-flex tabs__caption',
-                'after'          => ''
-            ));
-            ?>
         </div>
         <div class="portfolio-wrap tabs__content animated fadeIn active">
         	<?php
         	while(have_posts()):
-        		the_post();?>
+        		the_post(); ?>
 
         		<div class="portfolio-item">
                     <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), "full"); ?>" alt="work" class="portfolio-item__thumbnail">
                     <div class="mask">
                         <div class="mask__container d-flex justify-content-center">
-                            <a href="<?php echo esc_url(get_permalink()); ?>" class="look_item">
-                                <span><?php echo pll__("Подробнее"); ?></span>
-                                <i class="fa fa-link"></i>
-                            </a>
+                            <ul class="mask__info-block">
+                            	<?php echo '<a href="'.esc_url(get_permalink()).'" style="line-height: 1.5em">'; ?>
+                            	<?php the_title(); ?>
+                            	<?php echo '</a>' ?>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
-        	<?php endwhile;
-
-        	// the_posts_navigation();
+        	<?php
+            endwhile;
         	?>
         	<div class="pagination">
                 <?php

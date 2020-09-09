@@ -17,5 +17,5 @@ if(have_posts()):
   endwhile;
 endif;
 
-wp_footer();
+get_footer();
 ?>

@@ -4,6 +4,10 @@ body:not(.home) #hero {
 
 .portfolio-page{
 
+    .rcl-field{
+      display: none;
+    }
+
     .tabs__content {
         display: none
     }
