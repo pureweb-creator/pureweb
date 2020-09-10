@@ -1,6 +1,6 @@
 .sub-menu{
     background: #fff;
-    padding: 15px;
+    padding: 7px;
     padding-left: 0;
     padding-right: 0;
     border-radius: 5px;
@@ -19,6 +19,9 @@
         padding: 10px;
         text-align: left;
         margin-right: 0 !important;
+        a{
+          word-wrap: break-word;
+        }
     }
     li:hover{
       border-color: transparent !important;
@@ -30,7 +33,7 @@
 .menu-item-has-children:hover .sub-menu{
     visibility: visible;
     opacity: 1;
-    transform: translateX(0) translateY(0px);
+    transform: translateX(0) translateY(-10px);
 }
 
 .menu-item-has-children,

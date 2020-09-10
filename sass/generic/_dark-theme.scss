@@ -1,0 +1,400 @@
+// --- Variables ---
+// Base
+$dark_base_bg: #000;
+$dark_base_label_main: #fff;
+$dark_base_label_secondary: #8D8D93;
+$dark_base_label_tertiary: #454548;
+$dark_base_label_quaternary: #2A2A2C;
+$dark_base_shadow: 0px 0px 2px rgba(0, 0, 0, 0.12), 0px 2px 2px rgba(0, 0, 0, 0.24);
+
+// Elevated
+$dark_elevated_bg: #1C1C1E;
+$dark_elevated_label_main: #fff;
+$dark_elevated_label_secondary: #989899;
+$dark_elevated_label_tertiary: #5A5A5E;
+$dark_elevated_label_quaternary: #404044;
+
+// Accent
+$dark_accent_bg: #303030;
+$dark_accent_border: #424242;
+
+// Active
+$dark_active_label: #80CBC4;
+$dark_active_bg: #099970;
+
+// -- Style Sheets ---
+body.page-template-template-my-account.theme_dark{
+  background: $dark_base_bg;
+  color: $dark_base_label_main;
+
+  // Components
+  ::selection{
+    background: $dark_active_bg;
+  }
+
+  div.mce-panel{
+    background: $dark_accent_bg;
+    border-color: $dark_accent_border;
+  }
+
+  // a.recall-button,
+  span.recall-button,
+  .recall-button.rcl-upload-button,
+  input[type="submit"].recall-button,
+  input[type="submit"] .recall-button,
+  input[type="button"].recall-button,
+  input[type="button"] .recall-button,
+  // a.recall-button:hover,
+  .recall-button.rcl-upload-button:hover,
+  input[type="submit"].recall-button:hover,
+  input[type="submit"] .recall-button:hover,
+  input[type="button"].recall-button:hover,
+  input[type="button"] .recall-button:hover{
+    background: $dark_active_bg !important;
+  }
+
+  .progress__bar{
+    background: $dark_active_bg;
+  }
+
+  .rcl-bttn.rcl-bttn__type-primary{
+    background: $dark_active_bg;
+    transition: all .3s ease;
+    &.rcl-bttn__active,i{
+      color: $dark_base_label_main;
+    }
+    &:hover{
+      color: $dark_base_label_main !important;
+      background: darken($dark_active_bg, 10);
+    }
+  }
+
+  input,
+  textarea,
+  select{
+    background-color: $dark_accent_bg !important;
+  }
+
+  .logo img{
+    filter: brightness(10);
+  }
+
+  .rcl-notice{
+    background: transparent;
+    border: none;
+    color: $dark_base_label_secondary
+  }
+
+  .hero{
+    color: $dark_elevated_label_main;
+    .heading{
+      .nav{
+        ul{
+          li{
+            &:hover{
+              border-color: $dark_base_label_main
+            }
+            a{
+              color: $dark_base_label_main;
+            }
+          }
+        }
+      }
+      a{
+        color: $dark_base_label_main;
+      }
+      .sub-menu{
+        background: $dark_accent_bg;
+      }
+
+      .search.mobile-search .fa-bars,
+      .search.mobile-search button i{
+        color: $dark_elevated_label_secondary;
+      }
+    }
+  }
+
+  // Main
+  #recallbar{
+    background: $dark_elevated_bg;
+
+    .pr_sub_menu{
+      background: $dark_accent_bg;
+
+      a,i{
+        color: $dark_elevated_label_main !important;
+        opacity: .7;
+      }
+    }
+  }
+
+  #rcl-office{
+    background: $dark_base_bg;
+    box-shadow: none;
+
+    .cab_lt_line{
+      background: linear-gradient(to top, $dark_base_bg 10%, transparent);
+
+      .lk-avatar{
+        border-color: $dark_base_bg;
+
+        #rcl-avatar .avatar-icons .rcl-avatar-icon a{
+          background: rgba(0,0,0,0.5)
+        }
+      }
+
+      .cab_lt_title{
+        h2{
+          color: $dark_base_label_main;
+        }
+        .rcl-action{
+          color: $dark_base_label_secondary;
+        }
+      }
+
+      .cab_bttn_lite{
+        .rcl-tab-button a > span{
+          color: $dark_base_label_secondary;
+
+          .rcl-menu-notice, .rcl-menu-notice span{
+            color: $dark_base_label_main;
+          }
+        }
+      }
+
+      .user-menu{
+        border-top-color: $dark_accent_border;
+        .recall-button, .rcl-bttn{
+          transition: all .2s ease;
+
+          &:hover,&.active{
+            color: $dark_active_bg !important;
+            border-top-color: $dark_active_bg !important;
+          }
+        }
+      }
+    }
+
+    .users,
+    .recall_content_block
+    {
+      background: $dark_elevated_bg;
+    }
+
+    .pw_lk_container{
+      h4,h2,h3{
+        color: $dark_elevated_label_main;
+      }
+      .users .userlist .user-avatar{
+        color: $dark_elevated_label_secondary;
+      }
+      // View Profile Tab
+      .view-user-info__item_status{
+        color: $dark_elevated_label_secondary;
+        border-bottom-color: $dark_accent_border;
+        opacity: 1;
+      }
+
+      .view-user-info__item{
+        color: $dark_elevated_label_secondary;
+        &:nth-child(odd){
+          background: $dark_base_bg;
+        }
+      }
+
+      .view-user-info__item__title{
+        color: $dark_elevated_label_main
+      }
+
+      // Edit Profile Tab
+      .rcl-field-title{
+        color: $dark_elevated_label_secondary
+      }
+
+      .rcl-field-input input:not([type="file"]):not([type="checkbox"]):not([type="radio"]):not([type="button"]),
+      .rcl-field-input textarea,
+      .select-field{
+        border-color: $dark_elevated_label_tertiary;
+        color: $dark_elevated_label_secondary;
+
+        &:focus{
+          border-color: $dark_active_bg !important;
+        }
+      }
+
+      .rcl-field-notice{
+        color: $dark_elevated_label_tertiary;
+      }
+
+      // Contacts Tab
+      .contacts-counter{
+        color: $dark_elevated_label_secondary;
+      }
+      .rcl-chat-contacts{
+        .noread-message{
+          background: $dark_accent_bg;
+          border: none;
+        }
+
+        .chat-window-restore{
+          color: $dark_active_bg;
+        }
+
+        .author-name{
+          color: $dark_elevated_label_secondary
+        }
+        .time-message{
+          color: $dark_elevated_label_tertiary
+        }
+
+        .message-text{
+          color: $dark_elevated_label_tertiary;
+        }
+      }
+
+      // Chat Window
+      .rcl-chat .chat-form textarea{
+        border-color: $dark_accent_border;
+        color: $dark_elevated_label_secondary;
+        &:focus{
+          border-color: $dark_active_bg;
+        }
+      }
+
+      // Posts Tab
+      #subtab-type-post{
+        .rcl-table__row-header{
+          .rcl-table__cell{
+            color: $dark_elevated_label_secondary;
+          }
+        }
+
+        .rcl-table__cell, .rcl-table__cell > a{
+          color: $dark_elevated_label_tertiary;
+        }
+
+        .rating-null{
+          background: transparent
+        }
+
+        .rcl-table__border-row-bottom .rcl-table__row:not(.rcl-table__row-header):not(:last-child){
+          border-bottom-color: $dark_accent_border;
+        }
+      }
+
+      // Public Form Post Tab
+      #tab-postform, #tab-pureweb_add_portfolio{
+        label,select,textarea,.wp-switch-editor{
+          color: $dark_elevated_label_secondary;
+        }
+        .quicktags-toolbar,.wp-editor-container,.wp-switch-editor,
+        .rcl-public-box .rcl-tags-list .ms-ctn .ms-sel-ctn input{
+          background: $dark_accent_bg;
+          border-color: $dark_accent_border;
+        }
+        // WP Editor
+        div.mce-panel{
+          background: $dark_accent_bg;
+
+          div.mce-toolbar-grp{
+            background: $dark_accent_bg;
+          }
+
+          .mce-toolbar .mce-btn-group .mce-btn.mce-listbox{
+            background: transparent;
+            border: $dark_accent_border;
+          }
+        }
+
+        .notice-upload, .notice{
+          color: $dark_elevated_label_tertiary;
+        }
+
+        .rcl-checkbox-box{
+          label::before{
+            background: $dark_accent_bg;
+            border: $dark_accent_border;
+          }
+        }
+        .rcl-field-input input[type="checkbox"]:checked + label.block-label::before,
+        .rcl-field-input input[type="radio"]:checked + label.block-label::before{
+          background: $dark_active_bg;
+        }
+
+        .mass-upload-box .mass-upload-area{
+          background: $dark_accent_bg;
+          color: $dark_elevated_label_tertiary;
+        }
+
+        .rcl-public-box .rcl-tags-list > .block-label{
+          background: $dark_accent_bg;
+          span{
+            color: $dark_elevated_label_secondary;
+          }
+          small{
+            color: $dark_elevated_label_tertiary;
+          }
+        }
+      }
+
+      // User List Tab
+      .rcl-userlist{
+        .user-single{
+          border-bottom-color: $dark_accent_border;
+          .user-name a{
+            color: $dark_elevated_label_main;
+          }
+          .status-user-rcl{
+            background: transparent;
+            color: $dark_elevated_label_secondary
+          }
+        }
+      }
+
+      // News Feed Tab
+      #rcl-feed{
+        .feed-box{
+          background: $dark_elevated_bg !important;
+          box-shadow: unset;
+
+          .feed-author-name a {
+            color: $dark_elevated_label_main;
+          }
+
+          .feed-date{
+            color: $dark_elevated_label_secondary;
+          }
+
+          .feed-content{
+            color: $dark_elevated_label_secondary
+          }
+
+          .rating-plus{
+            color: $dark_active_label;
+          }
+
+          .more-link{
+            color: $dark_elevated_label_tertiary;
+            text-decoration: underline;
+          }
+        }
+
+        .feed-header .feed-options .options-box{
+          background: $dark_accent_bg;
+          border-color: transparent;
+          box-shadow: unset;
+          padding: 0;
+          a{
+            background: transparent;
+          }
+        }
+      }
+    }
+  }
+
+  .footer{
+    .contact__phone{
+      color: $dark_base_label_main;
+    }
+  }
+}

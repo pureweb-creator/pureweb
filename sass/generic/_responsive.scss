@@ -826,6 +826,8 @@
 
     .rcb_right_menu{
       margin-left: 10px !important;
+      width: 160px;
+      // overflow: hidden;;
     }
 
     .rcl-login{
@@ -834,6 +836,10 @@
 
     #recallbar .rcb_icon .rcb_hiden{
       font-size: 11px !important;
+    }
+
+    .users{
+      position: static !important;
     }
 
     // .rcb_left{
@@ -850,6 +856,8 @@
       }
       .cab_lt_line .lk-avatar{
         position: static;
+        margin-left: 10px;
+        margin-bottom: 20px;
       }
       .pw_lk_container .users .userlist{
         grid-template-columns: repeat(3, 1fr);
@@ -1018,5 +1026,20 @@
     // Components
     .order-site #countdown{
       font-size: 30px;
+    }
+
+    body.page-template-template-my-account.theme_dark{
+      #lk-menu{
+        background: #1C1C1E;
+        border: unset;
+
+        .recall-button{
+          background: transparent !important;
+          color: #fff;
+          &.active{
+            color: #80CBC4 !important;
+          }
+        }
+      }
     }
 }

@@ -62,6 +62,47 @@ $shadow: 0px 0px 2px rgba(0,0,0,0.12), 0px 2px 2px rgba(0,0,0,0.24);
   & *:not(.rcb_nmbr) {
     min-height: 100%;
   }
+  .pureweb-theme-swither{
+    color: rgb(230, 230, 230);
+  }
+  .checkbox-swither{
+  	position: relative;
+  	margin-left: 10px;
+  	margin-right: 24px;
+  	cursor: pointer;
+  	#theme-swither{
+  		display: none;
+    }
+  	#theme-swither:checked + .checkbox-swither__track{
+  		background: rgba(127, 202, 195, 0.5);
+    }
+  	#theme-swither:checked + .checkbox-swither__track > .checkbox-swither__knob{
+  		background: #80CBC4;
+  		transform: translateX(20px);
+    }
+  	&__track{
+  		background: rgba(34, 31, 31, .26);
+  		width: 34px;
+  		height: 14px;
+  		border-radius: 100px;
+  		display: block;
+  		transition: all .1s ease;
+    }
+
+  	&__knob{
+  		position: absolute;
+  		top: -3px;
+  		left: -3px;
+  		transition: all .1s ease;
+  		display: block;
+  		border-radius: 100px;
+  		width: 20px;
+  		height: 20px !important;
+      min-height: 20px !important;
+  		background: #F1F1F1;
+  		box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.12), 0px 2px 2px rgba(0, 0, 0, 0.24);
+    }
+  }
 
   // Left menu
   .rcb_left{
@@ -117,7 +158,7 @@ $shadow: 0px 0px 2px rgba(0,0,0,0.12), 0px 2px 2px rgba(0,0,0,0.24);
     margin-right: 5px;
   }
   .rcb_right_menu:hover{
-    border-сolor: transparent;
+    border-color: transparent;
   }
 
   // Recallbar right
@@ -219,6 +260,8 @@ $shadow: 0px 0px 2px rgba(0,0,0,0.12), 0px 2px 2px rgba(0,0,0,0.24);
     background: #fff;
     padding: 20px 16px;
     border-radius: 8px;
+    position: sticky;
+    top: 10%;
 
     .userlist .user-single{
       background: transparent;
@@ -451,10 +494,12 @@ $shadow: 0px 0px 2px rgba(0,0,0,0.12), 0px 2px 2px rgba(0,0,0,0.24);
   &.rcl-mini-chat .chat-form{
     margin: 0;
   }
-  .chat-form textarea, .chat-form textarea{
+  &.rcl-mini-chat .chat-form textarea{
+    border-radius: 15px;
+  }
+  .chat-form textarea{
     border: 1px solid #f0f0f0;
     background: #f0f2f5;
-    border-radius: 15px;
   }
   .message-box::before{
     display: none;
@@ -628,7 +673,7 @@ $shadow: 0px 0px 2px rgba(0,0,0,0.12), 0px 2px 2px rgba(0,0,0,0.24);
     width: calc(100% + 40px);
     margin-left: -20px;
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 2fr 3fr;
   }
 
   &__item__title{
@@ -677,10 +722,9 @@ $shadow: 0px 0px 2px rgba(0,0,0,0.12), 0px 2px 2px rgba(0,0,0,0.24);
       width: calc(100% + 60px);
       max-width: none;
       margin-left: -30px;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
     p{
-      line-height: 17px !important;
       font-family: Open Sans;
       font-weight: 400;
     }
