@@ -76,7 +76,7 @@ if(function_exists('wp_recall')){
 
      rcl_bar_add_menu_item('my-profile-link', array(
        'url'  => rcl_format_url(get_author_posts_url($userID, 'view')) . 'tab=view',
-       'icon' => 'fa-id-card-o',
+       'icon' => 'fa-id-card',
        'label'=> pll__('Карточка профиля')
      ));
    }
@@ -136,5 +136,30 @@ if(function_exists('wp_recall')){
           'notice' => '',
       );
       return $fields;
+    }
+
+    // Вывод подписчиков определенного юзера
+    function pureweb_rcl_followers_tab( $user_id ) {
+
+    	$content = '<h4 class="subscribers-list__title">' . __( 'List of subscribers', 'wp-recall' ) . '</h4>';
+
+    	$cnt = rcl_feed_count_subscribers( $user_id );
+
+    	if ( ! $cnt )
+    		return $content . rcl_get_notice( ['text' => __( 'You do not have any subscribers yet', 'wp-recall' ) ] );
+
+    	// add_filter( 'rcl_user_description', 'rcl_add_userlist_follow_button', 90 );
+    	add_filter( 'rcl_users_query', 'rcl_feed_subsribers_query_userlist', 10 );
+    	$content .= rcl_get_userlist( array(
+    		'template'		 => 'rows',
+    		'per_page'		 => 9,
+    		'orderby'		 => 'user_registered',
+    		'filters'		 => 1,
+    		'search_form'	 => 0,
+    		'data'			 => '',
+    		'add_uri'		 => array( 'tab' => 'followers' )
+    		) );
+
+    	return $content;
     }
 }

@@ -818,7 +818,7 @@
       }
     }
 }
-@media only screen and (max-width: 425px){
+@media only screen and (max-width: 476px){
     // Recallbar
     #recallbar .fal.fa-home{
       font-size: 22px;
@@ -840,6 +840,10 @@
 
     .users{
       position: static !important;
+    }
+
+    .pureweb-theme-swither > span{
+      display: none;
     }
 
     // .rcb_left{

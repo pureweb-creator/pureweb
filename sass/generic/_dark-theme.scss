@@ -273,7 +273,7 @@ body.page-template-template-my-account.theme_dark{
           color: $dark_elevated_label_tertiary;
         }
 
-        .rating-null{
+        .rating-null, .rating-plus{
           background: transparent
         }
 
@@ -338,6 +338,9 @@ body.page-template-template-my-account.theme_dark{
       }
 
       // User List Tab
+      .rcl-data-filters{
+        color: $dark_elevated_label_secondary;
+      }
       .rcl-userlist{
         .user-single{
           border-bottom-color: $dark_accent_border;
@@ -389,6 +392,24 @@ body.page-template-template-my-account.theme_dark{
           }
         }
       }
+    }
+  }
+
+  // Mini Chat
+  .rcl-mini-chat{
+    background: $dark_elevated_bg !important;
+
+    .rcl-chat-panel{
+      background: $dark_base_bg;
+    }
+
+    .chat-messages{
+      background: $dark_elevated_bg;
+    }
+
+    textarea{
+      border-color: $dark_accent_border;
+      color: $dark_elevated_label_secondary;
     }
   }
 

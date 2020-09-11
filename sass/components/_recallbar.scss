@@ -263,20 +263,13 @@ $shadow: 0px 0px 2px rgba(0,0,0,0.12), 0px 2px 2px rgba(0,0,0,0.24);
     position: sticky;
     top: 10%;
 
+    .rcl-data-filters{
+      display: none;
+    }
+
     .userlist .user-single{
       background: transparent;
       box-shadow: none;
-    }
-
-    .userlist .user-avatar{
-      display: block;
-      img{
-        transition: all .1s ease;
-        margin: 0;
-      }
-      img:hover{
-        filter: contrast(.5);
-      }
     }
   }
 
@@ -365,6 +358,39 @@ $shadow: 0px 0px 2px rgba(0,0,0,0.12), 0px 2px 2px rgba(0,0,0,0.24);
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-gap: 10px;
+      .user-single{
+        display: flex;
+        margin: 0;
+        flex-direction: column;
+        border: unset;
+      }
+      .userlist_top{
+        padding: 0;
+        padding-left: 0 !important;
+        order: 2;
+      }
+      .status_author_mess.online,
+      .status_author_mess.offline{
+        display: none;
+      }
+      .user-name{
+        margin: 0;
+      }
+      .userlist_cntr{
+        display: block;
+      }
+      .thumb-user{
+        width: 100%;
+        padding: 0;
+        position: static;
+        & > a {
+          margin: 0;
+        }
+      }
+      .user-name{
+        margin-top: 0 !important;
+      }
+
       .user-avatar{
         font-family: Segoe UI;
         color: #050505;
@@ -386,9 +412,10 @@ $shadow: 0px 0px 2px rgba(0,0,0,0.12), 0px 2px 2px rgba(0,0,0,0.24);
     padding: 10px 20px;
   }
 
-  #subtab-subscriptions h3,#subtab-followers h3{margin: 0;}
-  #subtab-subscriptions h3 + h3,
-  #subtab-followers h3 + h3{
+  .subscribers-list__title, .subscriptions-list__title{margin: 0;}
+
+  .subscribers-list__title + h3,
+  .subscriptions-list__title + h3{
     font-size: 14px;
     opacity: .7;
     font-weight: 400;

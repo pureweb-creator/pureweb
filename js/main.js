@@ -6,68 +6,56 @@ jQuery(".preloader").addClass('done');
 jQuery('body').addClass('portfolio-page');
 
 // START DARK THEME
-var darkMode;
+if(jQuery('div').is('.pureweb-theme-swither')){
+  var darkMode;
 
-function onClickBox() {
-  var checked=jQuery("#theme-swither").is(":checked");
-  localStorage.setItem("checked", checked);
-}
-
-function onReady() {
-  var checked="true"==localStorage.getItem("checked");
-  jQuery("#theme-swither").prop('checked', checked);
-  jQuery("#theme-swither").click(onClickBox);
-}
-
-jQuery(document).ready(onReady);
-
-//for loading
-var checked = JSON.parse(localStorage.getItem("theme-swither"));
-document.getElementById("theme-swither").checked = true;
-
-// Проверяем, если мы в принципе получили значение dark-mode
-// Тогда записвыаем значение в переменную
-// Если не получили, то записываем light и ничего не происходит, ибо ничего не срабатывает на light
-if (localStorage.getItem('dark-mode')) {
-  darkMode = localStorage.getItem('dark-mode');
-} else {
-  darkMode = 'light';
-}
- // Устанавливаем значение, какое проверяем выше
-localStorage.setItem('dark-mode', darkMode);
-
-
-// Если получили нужно значение, то есть dark а не light, то ставим темную тему
-if (localStorage.getItem('dark-mode') == 'dark') {
-  // if the above is 'dark' then apply .theme_dark to the body
-  jQuery('body.page-template-template-my-account').addClass('theme_dark');
-
-  // setInterval(function() {
-  //
-  //   var currentHours = new Date().getHours()
-  //   var body = document.querySelector('body')
-  //   if (currentHours > 7 && currentHours < 20) {
-  //     body.classList.remove('theme_dark');
-  //     jQuery('#theme-swither').uncheck(;)
-  //   } else {
-  //     body.classList.add('theme_dark');
-  //   }
-  //
-  // }, 1000)
-}
-
-// checkbox
-jQuery('.checkbox-swither').on('click', function() {
-  if( jQuery('#theme-swither').is(':checked') ){
-    jQuery('body.page-template-template-my-account').addClass('theme_dark');
-    // set stored value to 'dark'
-    localStorage.setItem('dark-mode', 'dark');
-  } else {
-    jQuery('body.page-template-template-my-account').removeClass('theme_dark');
-    // set stored value to 'light'
-    localStorage.setItem('dark-mode', 'light');
+  function onClickBox() {
+    var checked=jQuery("#theme-swither").is(":checked");
+    localStorage.setItem("checked", checked);
   }
-});
+
+  function onReady() {
+    var checked="true"==localStorage.getItem("checked");
+    jQuery("#theme-swither").prop('checked', checked);
+    jQuery("#theme-swither").click(onClickBox);
+  }
+
+  jQuery(document).ready(onReady);
+
+  //for loading
+  var checked = JSON.parse(localStorage.getItem("theme-swither"));
+  document.getElementById("theme-swither").checked = true;
+
+  // Проверяем, если мы в принципе получили значение dark-mode
+  // Тогда записвыаем значение в переменную
+  // Если не получили, то записываем light и ничего не происходит, ибо ничего не срабатывает на light
+  if (localStorage.getItem('dark-mode')) {
+    darkMode = localStorage.getItem('dark-mode');
+  } else {
+    darkMode = 'light';
+  }
+   // Устанавливаем значение, какое проверяем выше
+  localStorage.setItem('dark-mode', darkMode);
+
+  // Если получили нужноe значение, то есть dark а не light, то ставим темную тему
+  if (localStorage.getItem('dark-mode') == 'dark') {
+    // if the above is 'dark' then apply .theme_dark to the body
+    jQuery('body.page-template-template-my-account').addClass('theme_dark');
+  }
+
+  // checkbox
+  jQuery('.checkbox-swither').on('click', function() {
+    if( jQuery('#theme-swither').is(':checked') ){
+      jQuery('body.page-template-template-my-account').addClass('theme_dark');
+      // set stored value to 'dark'
+      localStorage.setItem('dark-mode', 'dark');
+    } else {
+      jQuery('body.page-template-template-my-account').removeClass('theme_dark');
+      // set stored value to 'light'
+      localStorage.setItem('dark-mode', 'light');
+    }
+  });
+}
 // END DARK THEME
 
 // Progress bar when scrolling
@@ -196,7 +184,7 @@ if(jQuery('.form-block-rcl__password')){
   });
 }
 
-// discount
+// Discount form
 if(jQuery('.discount')){
 
   // Ключ localStorage
@@ -217,7 +205,7 @@ if(jQuery('.discount')){
   });
 }
 
-//countdown
+// Countdown
 if(jQuery('.countdown')){
   // Set the date we're counting down to
   var countDownDate = new Date("Sep 31, 2020 23:59:59").getTime();
