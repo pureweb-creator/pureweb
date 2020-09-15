@@ -1,0 +1,52 @@
+#rcl-popup{
+  width: 100%;
+  .attach-data-grcl{
+    display: flex;
+    height: 90vh;
+
+    .user-attach{
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .right-part, .fancybox{
+      width: 50%;
+    }
+
+    .right-part{
+      height: 100%;
+      overflow: scroll;
+    }
+
+    .attach-title{
+      margin-bottom: 15px;
+    }
+
+    #commentlist{
+      .comm-attach{
+        margin: 0;
+        padding: 0 10px;
+      }
+      .comment-data{
+        opacity: .57;
+      }
+      .comment-author{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      p{
+        text-align: left;
+      }
+      .avatar{
+        border-radius: 100px;
+      }
+      .comm-attach{
+        background: transparent;
+      }
+    }
+  }
+
+  // Gallery
+  
+}

@@ -172,8 +172,40 @@ $shadow: 0px 0px 2px rgba(0,0,0,0.12), 0px 2px 2px rgba(0,0,0,0.24);
 }
 
 #rcl-chat-noread-box{
+  &.hidden-contacts{
+    .chat-contacts{
+      display: block;
+    }
+  }
   .rcl-noread-users{
     background: transparent;
+    margin-bottom: 30px;
+  }
+  .chat-contacts{
+    transform: scale(0);
+    transform-origin: bottom;
+    transition: all .3s ease;
+  }
+  .pw_noread_msg_view_full_list{
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    background: #fff;
+    box-shadow: $shadow;
+    line-height: 58px;
+    text-align: center;
+    cursor: pointer;
+    transition: all .3s ease;
+    &:hover{
+      i{
+        transform: rotate(180deg);
+      }
+    }
+    i{
+      font-size: 22px;
+      transition: all .3s ease;
+      color: $main_color;
+    }
   }
   .messages-icon,.more-contacts{
     display: none;
@@ -186,6 +218,7 @@ $shadow: 0px 0px 2px rgba(0,0,0,0.12), 0px 2px 2px rgba(0,0,0,0.24);
 #rcl-office{
   margin-top: 10px;
   padding-bottom: 50px;
+  box-shadow: unset;
 
   .fa-refresh{
     padding: .5em .7em;
@@ -210,7 +243,7 @@ $shadow: 0px 0px 2px rgba(0,0,0,0.12), 0px 2px 2px rgba(0,0,0,0.24);
     bottom: 0;
 
     .container{
-      width: 892px;
+      width: 1000px;
       position: absolute;
     }
     .user-shortinfo{
@@ -256,20 +289,97 @@ $shadow: 0px 0px 2px rgba(0,0,0,0.12), 0px 2px 2px rgba(0,0,0,0.24);
     }
   }
 
-  .users{
-    background: #fff;
-    padding: 20px 16px;
-    border-radius: 8px;
+  .pw_left_sidebar{
     position: sticky;
-    top: 10%;
+    top: -50%;
+    display: grid;
+    grid-row-gap: 30px;
 
-    .rcl-data-filters{
-      display: none;
+    &__item{
+      background: #fff;
+      padding: 20px 16px;
+      border-radius: 8px;
+
+      &__titles{
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .gallery-attachments,
+      .userlist{
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+
+        a{
+          display: block;
+        }
+
+        img{
+          width: 100%;
+          object-fit: cover;
+          border-radius: 8px;
+          display: block;
+        }
+      }
+
+      &.users .userlist{
+        .user-single{
+          display: flex;
+          margin: 0;
+          flex-direction: column;
+          border: unset;
+        }
+        .userlist_top{
+          padding: 0;
+          padding-left: 0 !important;
+          order: 2;
+        }
+        .status_author_mess.online,
+        .status_author_mess.offline{
+          display: none;
+        }
+        .user-name{
+          margin: 0;
+          a{
+            font-size: 11px;
+          }
+        }
+        .userlist_cntr{
+          display: block;
+        }
+        .thumb-user{
+          width: 100%;
+          padding: 0;
+          position: static;
+          & > a {
+            display: block;
+            margin: 0;
+          }
+        }
+        .user-name{
+          margin-top: 0 !important;
+        }
+
+        .user-avatar{
+          font-family: Segoe UI;
+          color: #050505;
+          font-size: 13px;
+          font-weight: 700;
+        }
+      }
     }
 
-    .userlist .user-single{
-      background: transparent;
-      box-shadow: none;
+    .users{
+      .rcl-data-filters{
+        display: none;
+      }
+
+      .userlist .user-single{
+        background: transparent;
+        box-shadow: none;
+      }
     }
   }
 
@@ -280,12 +390,26 @@ $shadow: 0px 0px 2px rgba(0,0,0,0.12), 0px 2px 2px rgba(0,0,0,0.24);
       background: transparent;
       color: #65676b;
       font-size: 13px;
-      border-top: 3px solid transparent;
-      padding: 10px 10px;
-      &:hover, &.active{
-        color: #1876f2;
-        border-top: 3px solid #1876f2;
+      position: relative;
+      // border-top: 3px solid transparent;
+      &::before{
+        content: "";
+        display: block;
+        transition: all .3s ease;
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        top: 0;
+        left: 0;
+        background: transparent;
+        border-radius: 0 0 3px 3px;
       }
+      &:hover, &.active{
+        &::before{
+          background: #1876f2;
+        }
+      }
+      padding: 10px 10px;
     }
   }
   .user-menu .rcl-bttn{
@@ -347,62 +471,10 @@ $shadow: 0px 0px 2px rgba(0,0,0,0.12), 0px 2px 2px rgba(0,0,0,0.24);
     grid-template-columns: 2fr 3fr;
     align-items: flex-start;
     grid-gap: 20px;
-    width: 892px;
+    width: 1000px;
 
     #lk-menu{
       width: 100%;
-    }
-
-    .users .userlist{
-      margin-top: 20px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-gap: 10px;
-      .user-single{
-        display: flex;
-        margin: 0;
-        flex-direction: column;
-        border: unset;
-      }
-      .userlist_top{
-        padding: 0;
-        padding-left: 0 !important;
-        order: 2;
-      }
-      .status_author_mess.online,
-      .status_author_mess.offline{
-        display: none;
-      }
-      .user-name{
-        margin: 0;
-      }
-      .userlist_cntr{
-        display: block;
-      }
-      .thumb-user{
-        width: 100%;
-        padding: 0;
-        position: static;
-        & > a {
-          margin: 0;
-        }
-      }
-      .user-name{
-        margin-top: 0 !important;
-      }
-
-      .user-avatar{
-        font-family: Segoe UI;
-        color: #050505;
-        font-size: 13px;
-        font-weight: 700;
-      }
-      .avatar{
-        width: 100px;
-        height: 100px;
-        object-fit: cover;
-        border-radius: 8px;
-      }
     }
   }
 
@@ -531,29 +603,60 @@ $shadow: 0px 0px 2px rgba(0,0,0,0.12), 0px 2px 2px rgba(0,0,0,0.24);
   .message-box::before{
     display: none;
   }
-
   .words-counter{
     margin-left: 15px;
+    position: absolute;
+    left: -10px;
+    z-index: 999;
+    bottom: -15px;
   }
-
   .chat-submit{
-    margin-right: 15px;
+    margin-right: 8px;
+    margin-bottom: 0;
+    border-radius: 3px;
+    margin-top: 6px;
   }
-
   .message-wrapper{
     padding-left: 10px;
     display: inline-block;
     max-width: 75%;
+    overflow: visible;
+  }
+  .chat-messages{
+    .chat-message{
+      &:not(.nth){
+        .message-box{
+          background: silver;
+          color: #000;
+        }
+      }
+      .message-box{
+        border-radius: 20px;
+        color: #fff;
+        font-size: 13px;
+        padding: 7px 10px 7px 10px;
+        background: $main_color;
+        p{
+          line-height: 1.4em;
+        }
+      }
+    }
   }
 
-  .chat-messages .chat-message .message-box{
-    border-radius: 15px;
-    color: #fff;
-    font-size: 13px;
-    padding: 5px 10px 5px 10px;
-    background: $main_color;
+  .message-text{
+    overflow: unset !important;
     p{
-      line-height: 1.4em;
+      padding: 0 !important;
+    }
+  }
+  .message-attachment{
+    background: transparent;
+    img{
+      width: calc(100% + 30px) !important;
+      max-width: unset;
+      margin-left: -15px;
+      margin-bottom: -12px;
+      border-radius: 0 0 17px 17px;
     }
   }
 
@@ -851,6 +954,7 @@ $shadow: 0px 0px 2px rgba(0,0,0,0.12), 0px 2px 2px rgba(0,0,0,0.24);
 
 .rcl-subtab-menu{
   background: transparent;
+  padding: 0;
 }
 
 // Published posts
@@ -871,7 +975,7 @@ $shadow: 0px 0px 2px rgba(0,0,0,0.12), 0px 2px 2px rgba(0,0,0,0.24);
 }
 
 // Public Form
-#tab-postform, #tab-pureweb_add_portfolio{
+#tab-postform, #tab-pureweb_add_portfolio,#tab-galrcl{
   // Start Reset
   .rcl-form-field,
   .mass-upload-box,

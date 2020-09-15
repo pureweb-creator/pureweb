@@ -81,7 +81,9 @@ global $pureweb_redux;
 	      </div>
     </div>
 </div>
+<?php #if(!rcl_is_office()): ?>
 <div class="preloader"><img src="<?php echo get_template_directory_uri(); ?>/img/puff.svg" alt="page-preloader"></div>
+<?php #endif; ?>
 <?php
 if(is_front_page()){ ?>
 <header id="hero" class="hero">

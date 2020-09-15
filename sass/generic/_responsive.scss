@@ -416,7 +416,8 @@
        grid-template-columns: 1fr;
      }
 
-     .pw_lk_container .users .userlist{
+     .pw_left_sidebar .gallery-attachments,
+     .pw_left_sidebar .userlist{
        grid-template-columns: repeat(5, 1fr);
      }
 
@@ -427,10 +428,14 @@
     .rcl-table__not-header .rcl-table__row{
       border: none;
     }
+
+    .pw_left_sidebar{
+      position: static !important;
+    }
 }
 
 /* for phones - screens less than 768px wide */
-@media only screen and (max-width: 565px) {
+@media only screen and (max-width: 565px){
     /* Specification */
     .container {
         padding-left: 5px;
@@ -817,6 +822,16 @@
         }
       }
     }
+
+    #rcl-chat-noread-box{
+      .rcl-noread-users{
+        margin-bottom: 60px;
+      }
+    }
+
+    .pw-btm-nav{
+      display: flex;
+    }
 }
 @media only screen and (max-width: 476px){
     // Recallbar
@@ -836,10 +851,6 @@
 
     #recallbar .rcb_icon .rcb_hiden{
       font-size: 11px !important;
-    }
-
-    .users{
-      position: static !important;
     }
 
     .pureweb-theme-swither > span{
@@ -863,7 +874,8 @@
         margin-left: 10px;
         margin-bottom: 20px;
       }
-      .pw_lk_container .users .userlist{
+      .pw_left_sidebar .gallery-attachments,
+      .pw_left_sidebar .userlist{
         grid-template-columns: repeat(3, 1fr);
 
         .avatar{
@@ -950,22 +962,23 @@
     }
 
     .single-page .single-page__article{
-      img,img.article__main-image{
+      img.article__main-image{
         width: calc(100% + 10px);
         max-width: initial;
+        margin-top: -5px;
         margin-left: -5px;
       }
-    }
-    .article__main-image{
-      margin-top: -5px;
     }
 
     .single-page__article{
       #block_author-rcl h3.user-name{
-        margin-left: 65px;
+        margin-left: 10px;
       }
       .userlist.rows-list .user-content-rcl::before{
         height: 150px;
+      }
+      .userlist.rows-list .user-content-rcl .ballun-status{
+        padding-left: 14px;
       }
     }
 
@@ -1003,16 +1016,21 @@
       .rcl-chat{
         .chat-messages .chat-message{
           overflow: visible;
+          margin-left: 10px;
         }
         .message-wrapper{
           max-width: 80%;
+        }
+
+        .chat-submit, .rcl-mini-chat .chat-submit{
+          margin-bottom: 10px;
         }
       }
     }
 
     // Profile
     #rcl-office .recall_content_block{
-      padding: 10px 5px;
+      padding: 10px 5px 5px 5px;
     }
     .userlist.rows-list .userlist_cntr{
       position: static;
@@ -1021,10 +1039,26 @@
       width: 70px;
     }
     #tab-chat{
-      padding: 0 20px !important
+      padding: 0 5px !important
     }
     .view-user-info__item{
       grid-template-columns: 1fr 1fr;
+    }
+
+    #rcl-office #delete_acc, #rcl-office #cpsubmit{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    #rcl-office #delete_acc{
+      margin-bottom: 0;
+      border-radius: 3px 3px 7px 7px;
+    }
+
+    #rcl-office .rcl-chat .chat-form, .rcl-mini-chat .chat-form{
+      margin-left: -9px;
+      margin-right: -9px;
     }
 
     // Components

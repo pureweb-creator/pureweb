@@ -5,7 +5,7 @@ $dark_base_label_main: #fff;
 $dark_base_label_secondary: #8D8D93;
 $dark_base_label_tertiary: #454548;
 $dark_base_label_quaternary: #2A2A2C;
-$dark_base_shadow: 0px 0px 2px rgba(0, 0, 0, 0.12), 0px 2px 2px rgba(0, 0, 0, 0.24);
+$dark_base_shadow: 0px 0px 2px rgba(255, 255, 255, 0.12), 0px 2px 2px rgba(255, 255, 255, 0.24);
 
 // Elevated
 $dark_elevated_bg: #1C1C1E;
@@ -111,6 +111,10 @@ body.page-template-template-my-account.theme_dark{
       .search.mobile-search button i{
         color: $dark_elevated_label_secondary;
       }
+
+      .mobile-search input{
+        color: $dark_elevated_label_secondary;
+      }
     }
   }
 
@@ -169,16 +173,23 @@ body.page-template-template-my-account.theme_dark{
 
           &:hover,&.active{
             color: $dark_active_bg !important;
-            border-top-color: $dark_active_bg !important;
+            &::before{
+              background: $dark_active_bg !important;
+            }
           }
         }
       }
     }
 
-    .users,
+    .pw_left_sidebar__item,
     .recall_content_block
     {
       background: $dark_elevated_bg;
+      color: $dark_elevated_label_secondary;
+    }
+
+    .pw_left_sidebar__item__titles a {
+      color: $dark_elevated_label_secondary;
     }
 
     .pw_lk_container{
@@ -231,6 +242,9 @@ body.page-template-template-my-account.theme_dark{
         color: $dark_elevated_label_secondary;
       }
       .rcl-chat-contacts{
+        .chat-contact{
+          border-bottom-color: $dark_accent_border;
+        }
         .noread-message{
           background: $dark_accent_bg;
           border: none;
@@ -260,6 +274,10 @@ body.page-template-template-my-account.theme_dark{
           border-color: $dark_active_bg;
         }
       }
+      .rcl-chat .rcl-smiles > i,
+      .rcl-chat-uploader > i{
+        color: $dark_elevated_label_secondary;
+      }
 
       // Posts Tab
       #subtab-type-post{
@@ -283,7 +301,7 @@ body.page-template-template-my-account.theme_dark{
       }
 
       // Public Form Post Tab
-      #tab-postform, #tab-pureweb_add_portfolio{
+      #tab-postform, #tab-pureweb_add_portfolio,#tab-galrcl{
         label,select,textarea,.wp-switch-editor{
           color: $dark_elevated_label_secondary;
         }
@@ -345,7 +363,7 @@ body.page-template-template-my-account.theme_dark{
         .user-single{
           border-bottom-color: $dark_accent_border;
           .user-name a{
-            color: $dark_elevated_label_main;
+            color: $dark_elevated_label_secondary;
           }
           .status-user-rcl{
             background: transparent;
@@ -396,6 +414,13 @@ body.page-template-template-my-account.theme_dark{
   }
 
   // Mini Chat
+  .pw_noread_msg_view_full_list{
+    background: $dark_base_bg !important;
+    box-shadow: $dark_base_shadow !important;
+    i{
+      color: $dark_base_label_main !important;
+    }
+  }
   .rcl-mini-chat{
     background: $dark_elevated_bg !important;
 
@@ -413,8 +438,30 @@ body.page-template-template-my-account.theme_dark{
     }
   }
 
+  #rcl-office .rcl-chat, .rcl-mini-chat{
+    .chat-messages{
+      .chat-message{
+        &:not(.nth){
+          .message-box{
+            background: $dark_accent_border;
+            color: $dark_elevated_label_main;
+          }
+        }
+      }
+    }
+  }
+
   .footer{
     .contact__phone{
+      color: $dark_base_label_main;
+    }
+  }
+
+  // Components
+  .pw-btm-nav{
+    box-shadow: 0px -2px 2px rgba(255,255,255,0.12), 0px -2px 2px rgba(255,255,255,0.24);
+    background: $dark_base_bg;
+    &__link {
       color: $dark_base_label_main;
     }
   }

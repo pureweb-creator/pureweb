@@ -1,7 +1,16 @@
 jQuery(document).ready(function () {
 
 // Preloader
-jQuery(".preloader").addClass('done');
+if(jQuery("div").is(".preloader")){
+  jQuery(".preloader").addClass('done');
+}
+
+// Gallery
+if(jQuery("ul").is('.gallery-attachments')){
+  var galleryImgW = jQuery(".gallery-attachments img").width();
+  jQuery('.pw_left_sidebar .gallery-attachments img').css({'height':galleryImgW+'px'});
+}
+
 // Other
 jQuery('body').addClass('portfolio-page');
 
@@ -53,6 +62,8 @@ if(jQuery('div').is('.pureweb-theme-swither')){
       jQuery('body.page-template-template-my-account').removeClass('theme_dark');
       // set stored value to 'light'
       localStorage.setItem('dark-mode', 'light');
+      jQuery("#theme-swither").checked = false;
+
     }
   });
 }
@@ -238,6 +249,21 @@ if(jQuery('.countdown')){
 
 if(jQuery('.chat-form')){
   jQuery('.chat-form textarea').attr('placeholder', 'Напишите сообщение')
+}
+
+// RCL chat noread users
+if(jQuery('span').is('.rcl-chat-user')){
+  jQuery('.pw_noread_msg_view_full_list').on('mouseover', function(){
+    jQuery('.rcl-noread-users').find('.pw_noread_msg_view_full_list i').removeClass('fa-comments').addClass('fa-times');
+    jQuery('.chat-contacts').css('transform', 'scale(1)');
+  });
+
+  jQuery('.rcl-noread-users').on('mouseleave', function(){
+    jQuery('.rcl-noread-users').find('.pw_noread_msg_view_full_list i').removeClass('fa-times').addClass('fa-comments');
+    jQuery('.chat-contacts').css('transform', 'scale(0)');
+  });
+} else if ( !jQuery('span').is('.rcl-chat-user') ){
+  jQuery('.pw_noread_msg_view_full_list').remove();
 }
 
 });

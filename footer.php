@@ -8,8 +8,22 @@
  *
  * @package pureweb
  */
-global $pureweb_redux;
+global $pureweb_redux, $user_ID;
 ?>
+<div class="pw-btm-nav d-flex">
+  <a href="<?php echo esc_url(rcl_format_url(get_author_posts_url($user_ID), 'chat')); ?>" class="pw-btm-nav__link">
+    <i class="fal fa-comments"></i>
+  </a>
+  <a href="<?php echo esc_url(rcl_format_url(get_author_posts_url($user_ID), 'postform')); ?>" class="pw-btm-nav__link">
+    <i class="fal fa-pen-alt"></i>
+  </a>
+  <a href="<?php echo esc_url(rcl_format_url(get_author_posts_url($user_ID), 'publics')); ?>" class="pw-btm-nav__link">
+    <i class="fal fa-file-alt"></i>
+  </a>
+  <a href="<?php echo esc_url(rcl_format_url(get_author_posts_url($user_ID), 'view')); ?>" class="pw-btm-nav__link">
+    <i class="fal fa-user"></i>
+  </a>
+</div>
 <footer id="footer" class="footer">
     <div class="container">
         <div class="footer__in d-flex">

@@ -152,7 +152,7 @@ if(function_exists('wp_recall')){
     	add_filter( 'rcl_users_query', 'rcl_feed_subsribers_query_userlist', 10 );
     	$content .= rcl_get_userlist( array(
     		'template'		 => 'rows',
-    		'per_page'		 => 9,
+    		'per_page'		 => 12,
     		'orderby'		 => 'user_registered',
     		'filters'		 => 1,
     		'search_form'	 => 0,
