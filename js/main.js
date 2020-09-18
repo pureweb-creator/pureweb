@@ -6,9 +6,19 @@ if(jQuery("div").is(".preloader")){
 }
 
 // Gallery
+if(jQuery("div").is("#rcl-popup")){
+  jQuery('#rcl-popup').fadeOut();
+}
 if(jQuery("ul").is('.gallery-attachments')){
   var galleryImgW = jQuery(".gallery-attachments img").width();
   jQuery('.pw_left_sidebar .gallery-attachments img').css({'height':galleryImgW+'px'});
+
+  jQuery('.grcl-attachment').on('click', function(){
+    jQuery('body').css({
+      'overflow-y': 'hidden'
+    });
+    // jQuery('#rcl-popup').fadeIn();
+  });
 }
 
 // Other
@@ -217,7 +227,7 @@ if(jQuery('.discount')){
 }
 
 // Countdown
-if(jQuery('.countdown')){
+if(jQuery('div').is('.countdown')){
   // Set the date we're counting down to
   var countDownDate = new Date("Sep 31, 2020 23:59:59").getTime();
 

@@ -132,6 +132,7 @@ function pureweb_scripts() {
 	wp_enqueue_style( 'pureweb-remodal', get_template_directory_uri() . '/layouts/remodal.css' );
 	wp_enqueue_style( 'pureweb-remodal-default-theme', get_template_directory_uri() . '/layouts/remodal-default-theme.css' );
   wp_enqueue_style( 'pureweb-main', get_template_directory_uri() . '/layouts/main.min.css' );
+  wp_enqueue_style( 'pureweb-fancybox', get_template_directory_uri() . '/layouts/jquery.fancybox-1.3.4.css' );
 
   wp_enqueue_script( 'jquery');
 
@@ -140,7 +141,13 @@ function pureweb_scripts() {
 		wp_enqueue_script( 'pureweb-jquery-masked-input', get_template_directory_uri() . '/js/libs/jquery.maskedinput.min.js', array(), '1.0', true);
 		wp_enqueue_script( 'pureweb-parallax', 'https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js', array(), '1.0', true );
 	}
-
+	
+	// if(is_user_profile()):
+		wp_enqueue_script( 'pureweb-easing-pack', get_template_directory_uri() . '/js/jquery.easing-1.3.pack.js', array(), '1.0', true );
+		wp_enqueue_script( 'pureweb-fancybox', get_template_directory_uri() . '/js/jquery.fancybox-1.3.4.js', array(), '1.0', true );
+		wp_enqueue_script( 'pureweb-fancybox-pack', get_template_directory_uri() . '/js/jquery.fancybox-1.3.4.pack.js', array(), '1.0', true );
+		wp_enqueue_script( 'pureweb-mousewheel-pack', get_template_directory_uri() . '/js/jquery.mousewheel-3.0.4.pack.js', array(), '1.0', true );
+	// endif;
 
 	wp_enqueue_script( 'pureweb-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '1.0', true );
 	wp_enqueue_script( 'pureweb-remodal', get_template_directory_uri() . '/js/libs/remodal.min.js', array(), '1.0', true );

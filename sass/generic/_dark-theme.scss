@@ -457,9 +457,29 @@ body.page-template-template-my-account.theme_dark{
     }
   }
 
+  // Gallery
+  .right-part{
+    background: $dark_elevated_bg;
+  }
+
+  #rcl-popup{
+    .attach-data-grcl .right-part #commentlist .comment-data{
+      color: $dark_elevated_label_secondary;
+    }
+    .attach-data-grcl .right-part #commentlist .comment-author a{
+      color: $dark_elevated_label_main;
+    }
+    .attach-data-grcl .right-part #commentlist p{
+      color: $dark_elevated_label_secondary;
+    }
+    textarea{
+      color: $dark_elevated_label_secondary;
+    }
+  }
+
   // Components
   .pw-btm-nav{
-    box-shadow: 0px -2px 2px rgba(255,255,255,0.12), 0px -2px 2px rgba(255,255,255,0.24);
+    box-shadow: unset;
     background: $dark_base_bg;
     &__link {
       color: $dark_base_label_main;

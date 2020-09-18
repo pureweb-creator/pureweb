@@ -10,6 +10,7 @@
  */
 global $pureweb_redux, $user_ID;
 ?>
+<?php if(rcl_is_office()): ?>
 <div class="pw-btm-nav d-flex">
   <a href="<?php echo esc_url(rcl_format_url(get_author_posts_url($user_ID), 'chat')); ?>" class="pw-btm-nav__link">
     <i class="fal fa-comments"></i>
@@ -24,6 +25,7 @@ global $pureweb_redux, $user_ID;
     <i class="fal fa-user"></i>
   </a>
 </div>
+<?php endif; ?>
 <footer id="footer" class="footer">
     <div class="container">
         <div class="footer__in d-flex">
@@ -39,6 +41,7 @@ global $pureweb_redux, $user_ID;
         </div>
     </div>
 </footer>
+<?php if(!rcl_is_office()): ?>
 <div class="discount">
   <div class="discount__top-line d-flex">
     <i class="fal fa-times-circle"></i>
@@ -48,7 +51,6 @@ global $pureweb_redux, $user_ID;
   <p class="discount__text"><?php echo pll__("Забронируйте разработку сайта до 31.09 и получите горячую скидку -30%!"); ?></p>
   <button type="button" name="button" class="discount__btn"><a href="#modal"><?php echo pll__("Заказать сайт!"); ?></a> </button>
 </div>
-
 
 <div class="remodal order-site" data-remodal-id="modal">
   <div class="mask"></div>
@@ -66,11 +68,14 @@ global $pureweb_redux, $user_ID;
     <div id="countdown"></div>
   </div>
 </div>
-<?php wp_footer(); ?>
-<?php if(!is_page_template('template-my-account.php')): ?>
+<?php
+endif;
+wp_footer();
+
+if(!is_page_template('template-my-account.php')): ?>
 <script type="text/javascript" src="https://spikmi.com/Widget?Id=3635"></script>
-<?php endif; ?>
-<?php if(is_front_page()): ?>
+<?php endif;
+if(is_front_page()): ?>
 <script>
     jQuery("#phone").mask("+380 (99) 999 99 99");
     new WOW().init();
